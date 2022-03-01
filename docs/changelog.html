@@ -1,0 +1,385 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Changelog &mdash; convis 0.6.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="convis 0.6.4 documentation" href="index.html"/>
+        <link rel="next" title="Filters and Layers" href="filters.html"/>
+        <link rel="prev" title="Examples" href="examples.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> convis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.6
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Get Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#current-github-version">0.6.4 (current github version)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">0.6.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">0.6.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">0.6.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">0.6</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="filters.html">Filters and Layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytorch_basics.html">PyTorch Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytorch_basics.html#pytorch-extensions-in-convis">PyTorch Extensions in Convis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Models</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="docs.html">The API: Convis classes and modules</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">convis</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Changelog</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/changelog.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="current-github-version">
+<h2>0.6.4 (current github version)<a class="headerlink" href="#current-github-version" title="Permalink to this headline">¶</a></h2>
+<p>Install with:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>pip install git+https://github.com/jahuth/convis.git
+</pre></div>
+</div>
+<p>Changes:</p>
+<blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li>fixed bug in convolution filter alignment in <a class="reference internal" href="docs_filters.html#convis.filters.Conv2d" title="convis.filters.Conv2d"><code class="xref py py-class docutils literal"><span class="pre">Conv2d</span></code></a> and <a class="reference internal" href="filters.html#convis.filters.Conv3d" title="convis.filters.Conv3d"><code class="xref py py-class docutils literal"><span class="pre">Conv3d</span></code></a>: odd sized filters are now centered correctly</li>
+<li><dl class="first docutils">
+<dt>fixed two bugs in <a class="reference internal" href="filters.html#convis.filters.spiking.LeakyIntegrateAndFireNeuron" title="convis.filters.spiking.LeakyIntegrateAndFireNeuron"><code class="xref py py-class docutils literal"><span class="pre">LeakyIntegrateAndFireNeuron</span></code></a> and <a class="reference internal" href="filters.html#convis.filters.spiking.RefractoryLeakyIntegrateAndFireNeuron" title="convis.filters.spiking.RefractoryLeakyIntegrateAndFireNeuron"><code class="xref py py-class docutils literal"><span class="pre">RefractoryLeakyIntegrateAndFireNeuron</span></code></a>:</dt>
+<dd><ul class="first last">
+<li>The default time step from <cite>convis.default_resolution</cite> was not copied to the internal variable <cite>tau</cite>. Now layers will use the value from the time of their creation.</li>
+<li>The input was not normalized with the step size, leading to different results when changing the resolution and leak simultaneously.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>added <cite>flip</cite> argument (default: True) to <a class="reference internal" href="filters.html#convis.filters.Conv3d.set_weight" title="convis.filters.Conv3d.set_weight"><code class="xref py py-meth docutils literal"><span class="pre">convis.filters.Conv3d.set_weight()</span></code></a> to keep the filter and impulse response aligned.</li>
+<li>fixed bug in plot_impulse (impulse was too long due to padding)</li>
+<li>added Difference Layer <a class="reference internal" href="docs_filters.html#convis.filters.Diff" title="convis.filters.Diff"><code class="xref py py-class docutils literal"><span class="pre">convis.filters.Diff</span></code></a></li>
+<li>added spiking layers <a class="reference internal" href="filters.html#convis.filters.spiking.Poisson" title="convis.filters.spiking.Poisson"><code class="xref py py-class docutils literal"><span class="pre">convis.filters.spiking.Poisson</span></code></a> and <a class="reference internal" href="filters.html#convis.filters.spiking.IntegrativeMotionSensor" title="convis.filters.spiking.IntegrativeMotionSensor"><code class="xref py py-class docutils literal"><span class="pre">convis.filters.spiking.IntegrativeMotionSensor</span></code></a>, which is a DVS like Layer</li>
+<li>added <a class="reference internal" href="docs_streams.html#convis.streams.ProcessingStream" title="convis.streams.ProcessingStream"><code class="xref py py-class docutils literal"><span class="pre">convis.streams.ProcessingStream</span></code></a> and <a class="reference internal" href="docs_streams.html#convis.streams.MNISTStream" title="convis.streams.MNISTStream"><code class="xref py py-class docutils literal"><span class="pre">convis.streams.MNISTStream</span></code></a> (and neuromorphic versions: <a class="reference internal" href="docs_streams.html#convis.streams.PoissonMNISTStream" title="convis.streams.PoissonMNISTStream"><code class="xref py py-class docutils literal"><span class="pre">PoissonMNISTStream</span></code></a> and <a class="reference internal" href="docs_streams.html#convis.streams.PseudoNMNIST" title="convis.streams.PseudoNMNIST"><code class="xref py py-class docutils literal"><span class="pre">PseudoNMNIST</span></code></a>)</li>
+<li>fixed bug in variable <a class="reference internal" href="docs.html#convis.variable_describe.describe" title="convis.variable_describe.describe"><code class="xref py py-func docutils literal"><span class="pre">describe()</span></code></a></li>
+<li>added usage docs about inputs and outputs</li>
+</ul>
+</div></blockquote>
+<p>All older versions are available from PyPI. Install the most recent stable version (currently 0.6.3) with:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>pip install convis
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>0.6.3<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="docs_retina.html#convis.filters.retina.GanglionSpiking" title="convis.filters.retina.GanglionSpiking"><code class="xref py py-class docutils literal"><span class="pre">GanglionSpiking</span></code></a> had a bug in the refractory period</li>
+<li>the different implementations of OPL Layers now produce roughly the same output</li>
+<li>FullConvolutionOPLFilter now creates a filter from configuration options</li>
+<li><dl class="first docutils">
+<dt><a class="reference internal" href="docs.html#convis.base.Layer.run" title="convis.base.Layer.run"><code class="xref py py-func docutils literal"><span class="pre">run()</span></code></a> now always returns an <a class="reference internal" href="docs.html#convis.base.Output" title="convis.base.Output"><code class="xref py py-class docutils literal"><span class="pre">Output</span></code></a> object</dt>
+<dd><ul class="first last">
+<li>fixed a bug where it returned an <a class="reference internal" href="docs.html#convis.base.Output" title="convis.base.Output"><code class="xref py py-class docutils literal"><span class="pre">Output</span></code></a> object wrapped in a <a class="reference internal" href="docs.html#convis.base.Output" title="convis.base.Output"><code class="xref py py-class docutils literal"><span class="pre">Output</span></code></a>  object</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><a class="reference internal" href="docs.html#convis.base.Layer.run" title="convis.base.Layer.run"><code class="xref py py-func docutils literal"><span class="pre">run()</span></code></a> can now process infinite streams if it gets an argument <cite>max_t</cite></li>
+<li>added warnings to <a class="reference internal" href="docs_streams.html#module-convis.streams" title="convis.streams"><code class="xref py py-mod docutils literal"><span class="pre">convis.streams</span></code></a> classes that are unstable</li>
+<li>fixed <a class="reference internal" href="docs_streams.html#convis.streams.ImageSequence" title="convis.streams.ImageSequence"><code class="xref py py-class docutils literal"><span class="pre">convis.streams.ImageSequence</span></code></a></li>
+<li><a class="reference internal" href="docs.html#convis.utils.plot_tensor" title="convis.utils.plot_tensor"><code class="xref py py-func docutils literal"><span class="pre">convis.utils.plot_tensor()</span></code></a> is now available as <cite>convis.plot_tensor</cite></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id2">
+<h2>0.6.2<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>A small amount of bug fixes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>Fixed a bug in <a class="reference internal" href="docs_retina.html#convis.filters.retina.GanglionInput" title="convis.filters.retina.GanglionInput"><code class="xref py py-class docutils literal"><span class="pre">convis.filters.retina.GanglionInput</span></code></a>:</dt>
+<dd><ul class="first last">
+<li>the convolution filters now initialize without having to reapply a configuration to the layer/parameters</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>made padding flags in <a class="reference internal" href="filters.html#convis.filters.Conv3d" title="convis.filters.Conv3d"><code class="xref py py-class docutils literal"><span class="pre">convis.filters.Conv3d</span></code></a> default to True</dt>
+<dd><ul class="first last">
+<li>in contrast to PyTorch <cite>Conv3d</cite> the output will now have the same shape as the input <em>by default</em>. To disable, use <cite>time_pad=False</cite> and <cite>autopad=False</cite> as arguments.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>fixed a bug when calling <a class="reference internal" href="docs.html#convis.base.Output.array" title="convis.base.Output.array"><code class="xref py py-func docutils literal"><span class="pre">array()</span></code></a> on <a class="reference internal" href="docs.html#convis.base.Output" title="convis.base.Output"><code class="xref py py-class docutils literal"><span class="pre">convis.base.Output</span></code></a>.</li>
+<li>fixed a bug where <cite>resolution</cite> was not a valid argument to <a class="reference internal" href="filters.html#convis.filters.Conv3d.gaussian" title="convis.filters.Conv3d.gaussian"><code class="xref py py-func docutils literal"><span class="pre">convis.filters.Conv3d.gaussian()</span></code></a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id3">
+<h2>0.6.1<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>It is now possible to disable the computational graph see  <a class="reference internal" href="usage.html#disable-graph"><span class="std std-ref">these examples</span></a></li>
+<li><dl class="first docutils">
+<dt>The documentation now has <a class="reference internal" href="usage.html#global-configuration"><span class="std std-ref">a section</span></a> about changing the global configuration parameters.</dt>
+<dd><ul class="first last">
+<li><cite>default_resolution</cite> now lives directly in <cite>convis</cite>, no longer in <cite>convis.variables</cite></li>
+<li>other submodules now use <cite>convis._get_default_resolution()</cite> to get the current <cite>default_resolution</cite> to avoid copies that don’t update</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>some issues with creating inline plots in Python 3 were fixed</li>
+<li><dl class="first docutils">
+<dt>feeding an <a class="reference internal" href="docs.html#convis.base.Output" title="convis.base.Output"><code class="xref py py-class docutils literal"><span class="pre">Output</span></code></a> object to a <a class="reference internal" href="docs.html#convis.base.Layer.run" title="convis.base.Layer.run"><code class="xref py py-meth docutils literal"><span class="pre">run()</span></code></a> function will now take the first output and process it as input</dt>
+<dd><ul class="first last">
+<li>this way, it is now easier to continue a graph through multiple models</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>a new submodule <a class="reference internal" href="docs_models.html#module-convis.layers" title="convis.layers"><code class="xref py py-mod docutils literal"><span class="pre">convis.layers</span></code></a> now contains all <code class="xref py py-class docutils literal"><span class="pre">Layers</span></code> from <a class="reference internal" href="docs_filters.html#module-convis.filters" title="convis.filters"><code class="xref py py-mod docutils literal"><span class="pre">convis.filters</span></code></a> and <a class="reference internal" href="docs_models.html#module-convis.models" title="convis.models"><code class="xref py py-mod docutils literal"><span class="pre">convis.models</span></code></a>! If you are unsure whether something is only a “filter” or a already a “model”, they can all be found in the same module now. Still, <a class="reference internal" href="docs_filters.html#module-convis.filters" title="convis.filters"><code class="xref py py-mod docutils literal"><span class="pre">convis.filters</span></code></a> and <a class="reference internal" href="docs_models.html#module-convis.models" title="convis.models"><code class="xref py py-mod docutils literal"><span class="pre">convis.models</span></code></a> will continue to be available separately.</li>
+<li><dl class="first docutils">
+<dt>added an unfinished class <a class="reference internal" href="docs_models.html#convis.models.Dict" title="convis.models.Dict"><code class="xref py py-class docutils literal"><span class="pre">convis.models.Dict</span></code></a> which will be similar to <a class="reference internal" href="docs_models.html#convis.models.List" title="convis.models.List"><code class="xref py py-class docutils literal"><span class="pre">convis.models.List</span></code></a>, but can name its layers arbitrarily.</dt>
+<dd><ul class="first last">
+<li>possibly both classes will be merged and replace the <a class="reference internal" href="docs_models.html#convis.models.Sequential" title="convis.models.Sequential"><code class="xref py py-class docutils literal"><span class="pre">convis.models.Sequential</span></code></a> and <a class="reference internal" href="docs_models.html#convis.models.Parallel" title="convis.models.Parallel"><code class="xref py py-class docutils literal"><span class="pre">convis.models.Parallel</span></code></a> classes</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id4">
+<h2>0.6<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>This version fixed an issue with the new PyTorch version (&gt;0.4)</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="filters.html" class="btn btn-neutral float-right" title="Filters and Layers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="examples.html" class="btn btn-neutral" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Jacob Huth.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.6.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

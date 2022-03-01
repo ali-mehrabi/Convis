@@ -1,0 +1,659 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Usage &mdash; convis 0.6.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="convis 0.6.4 documentation" href="index.html"/>
+        <link rel="next" title="Examples" href="examples.html"/>
+        <link rel="prev" title="Installation" href="installation.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> convis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.6
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Get Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#running-a-model">Running a model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#input-and-output">Input and Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-plot">How to Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#animating-plots">Animating Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#global-configurations">Global configurations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-a-model-the-p-parameter-list">Configuring a Model: the <cite>.p.</cite> parameter list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-a-model-exporting-and-importing-all-parameters">Configuring a Model: exporting and importing all parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#switching-between-cpu-and-gpu-usage">Switching between CPU and GPU usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enabling-and-disabling-the-computational-graph">Enabling and disabling the computational graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-runner-objects">Using Runner objects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#optimizing-a-model">Optimizing a Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-an-optimizer-by-hand">Using an Optimizer by Hand</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="filters.html">Filters and Layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytorch_basics.html">PyTorch Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytorch_basics.html#pytorch-extensions-in-convis">PyTorch Extensions in Convis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Models</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="docs.html">The API: Convis classes and modules</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">convis</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Usage</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/usage.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="running-a-model">
+<h2>Running a model<a class="headerlink" href="#running-a-model" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">convis</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">retina</span><span class="o">.</span><span class="n">Retina</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="p">(</span><span class="n">some_short_input</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">some_input</span><span class="p">,</span><span class="n">dt</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Usually PyTorch Layers are callable and will perform their forward computation when called with some input. But since Convis deals with long (potentially infinite) video sequences, a longer input can be processed in smaller chunks by calling <a class="reference internal" href="docs.html#convis.base.Layer.run" title="convis.base.Layer.run"><code class="xref py py-meth docutils literal"><span class="pre">Layer.run(input,dt=..)</span></code></a> with <cite>dt</cite> set to the length of input that should be processed at a time. This length depends on the memory available in your system and also if you are using the model on your cpu or gpu.
+<a class="reference internal" href="docs.html#convis.base.Layer.run" title="convis.base.Layer.run"><code class="xref py py-meth docutils literal"><span class="pre">run()</span></code></a> also accepts numpy arrays as input, which will be converted into PyTorch <cite>Tensor`s and packaged as a `Variable</cite>.</p>
+<div class="section" id="input-and-output">
+<h3>Input and Output<a class="headerlink" href="#input-and-output" title="Permalink to this headline">¶</a></h3>
+<p>The in- and output of <cite>convis</cite> models is in most cases <strong>five-dimensional</strong>. Why is that?</p>
+<p>The convention comes from <a class="reference external" href="https://pytorch.org/docs/0.3.0/nn.html#torch.nn.Conv3d" title="(in PyTorch vmaster (0.3.0.post4 ))"><code class="xref py py-class docutils literal"><span class="pre">Conv3d</span></code></a> processing two additional dimensions for 3d convolutions: <em>batches</em> and <em>channels</em>. They are handled differently in the way they relate to the convolution weight: each <em>batch</em> is processed completely independently and adding more batches does not require a change to the weight and there are always the same number of output as input <em>batches</em>; in turn each <em>channel</em> (eg. colour) requires an appropriate <cite>in_channel</cite> dimension in the weight and the number of output <em>channels</em> is also determined by the dimensions of the weight (see <a class="reference internal" href="filters.html#convis.filters.Conv3d" title="convis.filters.Conv3d"><code class="xref py py-class docutils literal"><span class="pre">convis.filters.Conv3d</span></code></a>).</p>
+<p>The dimensions of all output in <cite>convis</cite> is therefore:</p>
+<blockquote>
+<div><strong>[batch, channel, time, space x, space y]</strong></div></blockquote>
+<p>and the <a class="reference internal" href="docs.html#convis.base.Output" title="convis.base.Output"><code class="xref py py-class docutils literal"><span class="pre">Output</span></code></a> objects can also contain multiple output tensors of different shapes.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">o</span> <span class="o">=</span> <span class="n">retina</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">some_input</span><span class="p">,</span><span class="n">dt</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">o</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
+<span class="go">torch.Size([1, 1, 1000, 10, 10])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">o</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">())</span> <span class="c1"># the retina model has by default two outputs (On and Off cells)</span>
+<span class="go">torch.Size([1, 1, 1000, 10, 10])</span>
+</pre></div>
+</div>
+<p>If an input has less dimensions, it can be broadcasted with <code class="xref py py-func docutils literal"><span class="pre">convis.make_input()</span></code> from 1d, 2d and 3d to 5d, and this function also gives the option to create CPU or GPU tensors. Also 3d inputs will be automatically broadcast to 5d by all <a class="reference internal" href="docs.html#convis.base.Layer" title="convis.base.Layer"><code class="xref py py-class docutils literal"><span class="pre">convis.base.Layer</span></code></a> s.</p>
+</div>
+<div class="section" id="how-to-plot">
+<h3>How to Plot<a class="headerlink" href="#how-to-plot" title="Permalink to this headline">¶</a></h3>
+<p>To get an overview plot of an <a class="reference internal" href="docs.html#convis.base.Output" title="convis.base.Output"><code class="xref py py-class docutils literal"><span class="pre">Output</span></code></a> object in jupyter notebooks, it is sufficient to have the output as the last line in a cell.
+This will call <code class="xref py py-func docutils literal"><span class="pre">convis.plot_tensor()</span></code> on each tensor in the <a class="reference internal" href="docs.html#convis.base.Output" title="convis.base.Output"><code class="xref py py-class docutils literal"><span class="pre">Output</span></code></a>.
+Alternatively one can call <a class="reference internal" href="docs.html#convis.base.Output.plot" title="convis.base.Output.plot"><code class="xref py py-func docutils literal"><span class="pre">convis.base.Output.plot()</span></code></a>, which will get a line plot of the first tensor (or the n-th tensor if an argument n is supplied).</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">o</span> <span class="o">=</span> <span class="n">retina</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">some_input</span><span class="p">,</span><span class="n">dt</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">o</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">Output</span> <span class="n">containing</span> <span class="mi">2</span> <span class="n">Tensors</span><span class="o">.</span>
+
+        <span class="o">|</span> <span class="mi">1</span><span class="n">x1x1000x1x1</span> <span class="n">Tensor</span>
+        <span class="o">|</span> <span class="o">&lt;</span><span class="n">line</span> <span class="n">plot</span><span class="o">&gt;</span>
+        <span class="o">|</span> <span class="o">&lt;</span><span class="n">sequence</span> <span class="n">of</span> <span class="n">example</span> <span class="n">frames</span><span class="o">&gt;</span>
+
+        <span class="o">|</span> <span class="mi">1</span><span class="n">x1x1000x1x1</span> <span class="n">Tensor</span>
+        <span class="o">|</span> <span class="o">&lt;</span><span class="n">line</span> <span class="n">plot</span><span class="o">&gt;</span>
+        <span class="o">|</span> <span class="o">&lt;</span><span class="n">sequence</span> <span class="n">of</span> <span class="n">example</span> <span class="n">frames</span><span class="o">&gt;</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">o</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="o">&lt;</span><span class="n">line</span> <span class="n">plot</span><span class="o">&gt;</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">convis</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">o</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="o">&lt;</span><span class="n">line</span> <span class="n">plot</span> <span class="p">(</span><span class="n">same</span> <span class="k">as</span> <span class="n">o</span><span class="o">.</span><span class="n">plot</span><span class="p">())</span><span class="o">&gt;</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">convis</span><span class="o">.</span><span class="n">plot_tensor</span><span class="p">(</span><span class="n">o</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="o">&lt;</span><span class="n">line</span> <span class="n">plot</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">sequence</span> <span class="n">of</span> <span class="n">example</span> <span class="n">frames</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Most analysis will be done on <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.15)"><code class="xref py py-func docutils literal"><span class="pre">numpy.array()</span></code></a> s on the CPU rather than <a class="reference external" href="https://pytorch.org/docs/0.3.0/tensors.html#torch.Tensor" title="(in PyTorch vmaster (0.3.0.post4 ))"><code class="xref py py-class docutils literal"><span class="pre">torch.Tensor</span></code></a> s, so the output can be turned into arrays with the function <a class="reference internal" href="docs.html#convis.base.Output.array" title="convis.base.Output.array"><code class="xref py py-func docutils literal"><span class="pre">convis.base.Output.array()</span></code></a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">out</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># using first tensor in output</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">out</span>
+<span class="go">array([[[[[0,0,0,0,0,0,0,0,0]],</span>
+<span class="go">        ... ]]], dtype=uint8)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,:,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>     <span class="c1"># signal of pixel 5,5 over time</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">imshow</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,:,:])</span> <span class="c1"># frame at time 100</span>
+</pre></div>
+</div>
+<p>If there is more than one tensor in the <a class="reference internal" href="docs.html#convis.base.Output" title="convis.base.Output"><code class="xref py py-class docutils literal"><span class="pre">Output</span></code></a> object, <cite>o.array(1)</cite> will give the second output, etc.</p>
+</div>
+<div class="section" id="animating-plots">
+<h3>Animating Plots<a class="headerlink" href="#animating-plots" title="Permalink to this headline">¶</a></h3>
+<p>Another way to plot 5d tensors if you are using <a class="reference external" href="http://jupyter.org/">jupyter notebooks</a> is to produce an animation.
+Convis offers two animation functions (plain and scrolling) with two outputs each (html5 video and html/javascript animation):</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">convis</span><span class="o">.</span><span class="n">animate_to_html</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">array</span><span class="p">(),</span><span class="n">skip</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">scrolling_plot</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">window_length</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span> <span class="c1"># html and scrolling</span>
+<span class="go">&lt;HTML+javascript animated plot&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">convis</span><span class="o">.</span><span class="n">animate_to_video</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">array</span><span class="p">(),</span><span class="n">skip</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">scrolling_plot</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c1"># video and plain</span>
+<span class="go">&lt;HTML5 embedded video&gt;</span>
+</pre></div>
+</div>
+<p>The output can also be produced manually from the <a class="reference internal" href="docs.html#convis.variable_describe.animate" title="convis.variable_describe.animate"><code class="xref py py-func docutils literal"><span class="pre">animate()</span></code></a>
+and <a class="reference internal" href="docs.html#convis.variable_describe.animate_double_plot" title="convis.variable_describe.animate_double_plot"><code class="xref py py-func docutils literal"><span class="pre">animate_double_plot()</span></code></a> functions, which each return
+a <a class="reference external" href="https://matplotlib.org/3.0.0/api/_as_gen/matplotlib.animation.FuncAnimation.html#matplotlib.animation.FuncAnimation" title="(in Matplotlib v3.0.0)"><code class="xref py py-class docutils literal"><span class="pre">matplotlib.animation.FuncAnimation</span></code></a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">HTML</span><span class="p">(</span><span class="n">convis</span><span class="o">.</span><span class="n">variable_describe</span><span class="o">.</span><span class="n">animate</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">array</span><span class="p">(),</span><span class="n">skip</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">to_html5_video</span><span class="p">())</span>
+<span class="go">&lt;HTML5 embedded video&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">HTML</span><span class="p">(</span><span class="n">convis</span><span class="o">.</span><span class="n">variable_describe</span><span class="o">.</span><span class="n">animate_double_plot</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">array</span><span class="p">(),</span><span class="n">skip</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">window_length</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
+<span class="go">&lt;HTML+javascript animated plot&gt;</span>
+</pre></div>
+</div>
+<p>Or you can save the animation (see <code class="xref py py-func docutils literal"><span class="pre">matplotlib.animation.FuncAnimation.save()</span></code>):</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">convis</span><span class="o">.</span><span class="n">variable_describe</span><span class="o">.</span><span class="n">animate</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">array</span><span class="p">(),</span><span class="n">skip</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;mymovie.mp4&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">convis</span><span class="o">.</span><span class="n">variable_describe</span><span class="o">.</span><span class="n">animate_double_plot</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">array</span><span class="p">(),</span><span class="n">skip</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">window_length</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;mymovie.mp4&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="global-configurations">
+<h3>Global configurations<a class="headerlink" href="#global-configurations" title="Permalink to this headline">¶</a></h3>
+<p id="global-configuration">There are a few global parameters that can change the behaviour of convis.
+They can be found by tab completing <cite>convis.default_(…)</cite>.</p>
+<p>To enable or disable whether Parameters should by default keep their computational graph you can set <cite>convis.default_grad_enabled</cite> to either <cite>True</cite> or <cite>False</cite>.
+If you are not planning on using the optimization features of <cite>convis</cite>, you can disable all computational graphs to save memory!
+By default, graphs are enabled (<cite>convis.default_grad_enabled = True</cite>).</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">convis</span>
+<span class="n">convis</span><span class="o">.</span><span class="n">default_grad_enabled</span> <span class="o">=</span> <span class="bp">False</span> <span class="c1"># disables computational graphs by default</span>
+</pre></div>
+</div>
+<p><cite>convis</cite> has default scaling parameters for spatial and temporal dimensions.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">convis</span>
+<span class="c1"># 20 pixel correspond to 1 degree of the visual field</span>
+<span class="n">convis</span><span class="o">.</span><span class="n">default_resolution</span><span class="o">.</span><span class="n">pixel_per_degree</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="c1"># a bin is by default 1 ms long</span>
+<span class="n">convis</span><span class="o">.</span><span class="n">default_resolution</span><span class="o">.</span><span class="n">steps_per_second</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="c1"># making all computations faster, but less accurate:</span>
+<span class="n">convis</span><span class="o">.</span><span class="n">default_resolution</span><span class="o">.</span><span class="n">pixel_per_degree</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># spatial scale is half the default</span>
+<span class="n">convis</span><span class="o">.</span><span class="n">default_resolution</span><span class="o">.</span><span class="n">steps_per_second</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1"># 5ms time bins</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuring-a-model-the-p-parameter-list">
+<h3>Configuring a Model: the <cite>.p.</cite> parameter list<a class="headerlink" href="#configuring-a-model-the-p-parameter-list" title="Permalink to this headline">¶</a></h3>
+<p id="p-list">The best way to configure the model is by exploring the
+structure with tab completion of the <cite>.p.</cite> parameter list.
+As an example. the retina model will give you first the list of layers and
+then the list of parameters of each layer (see also <a class="reference internal" href="docs.html#convis.base.Layer" title="convis.base.Layer"><code class="xref py py-class docutils literal"><span class="pre">convis.base.Layer</span></code></a>).</p>
+<p>To change the values, you can use the method <cite>.set</cite>, or
+(<em>but only if you use the `.p.` list</em>) by assigning a new value
+to the parameter directly:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">retina</span><span class="o">.</span><span class="n">Retina</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.&lt;</span><span class="n">tab</span><span class="o">&gt;</span>
+<span class="go">opl, bipolar, gang_0_input, gang_0_spikes, gang_1_input, gang_1_spikes</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">bipolar</span><span class="o">.</span><span class="n">lambda_amp</span>
+<span class="go">Variable</span>
+<span class="go">----------</span>
+<span class="go">   name: lambda_amp</span>
+<span class="go">   doc: Amplification of the gain control. When `lambda_amp`=0, there is no gain control.</span>
+<span class="go">   value: array([0.], dtype=float32)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">bipolar</span><span class="o">.</span><span class="n">lambda_amp</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mf">100.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">bipolar</span><span class="o">.</span><span class="n">lambda_amp</span> <span class="o">=</span> <span class="mf">100.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">bipolar</span><span class="o">.</span><span class="n">lambda_amp</span>
+<span class="go">Variable</span>
+<span class="go">----------</span>
+<span class="go">   name: lambda_amp</span>
+<span class="go">   doc: Amplification of the gain control. When `lambda_amp`=0, there is no gain control.</span>
+<span class="go">   value: array([100.], dtype=float32)</span>
+</pre></div>
+</div>
+<p>The <cite>.p</cite> list is collecting all the parameters of the model, so that they are
+easier for you to interact with. You can also navigate through the submodules
+yourself, but then you have to ignore all methods and attributes of the Layers
+that are not Parameters:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">bipolar</span><span class="o">.&lt;</span><span class="n">tab</span><span class="o">&gt;</span>
+<span class="go">a_0, a_0, a_1, a_1, add_module, apply, b_0, b_0, children, clear_state, compute_loss, conv2d, cpu, cuda, dims, dims, double, dump_patches, eval, float, forward, g_leak, g_leak, g_leak, get_all, get_parameters, get_state, half, init_states, inputNernst_inhibition, inputNernst_inhibition, input_amp, input_amp, input_amp, lambda_amp, lambda_amp, lambda_amp, load_parameters, load_state_dict, m, modules, named_children, named_modules, named_parameters, optimize, p, parameters, parse_config, plot_impulse, plot_impulse_space, pop_all, pop_optimizer, pop_parameters, pop_state, preceding_V_bip, preceding_attenuationMap, preceding_inhibition, push_all, push_optimizer, push_parameters, push_state, register_backward_hook, register_buffer, register_forward_hook, register_forward_pre_hook, register_parameter, register_state, retrieve_all, run, s, save_parameters, set_all, set_optimizer, set_optimizer, set_parameters, set_state, share_memory, state_dict, steps, steps, store_all, tau, tau, tau, train, training, training, type, user_parameters, zero_grad</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># too many!</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">bipolar</span><span class="o">.</span><span class="n">lambda_amp</span>
+<span class="go">Variable</span>
+<span class="go">----------</span>
+<span class="go">   name: lambda_amp</span>
+<span class="go">   doc: Amplification of the gain control. When `lambda_amp`=0, there is no gain control.</span>
+<span class="go">   value: array([0.], dtype=float32)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">bipolar</span><span class="o">.</span><span class="n">lambda_amp</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mf">42.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Since <cite>retina.bipolar</cite> is itself a <a class="reference internal" href="docs.html#convis.base.Layer" title="convis.base.Layer"><code class="xref py py-class docutils literal"><span class="pre">convis.base.Layer</span></code></a> object, <cite>retina.bipolar.p.&lt;tab&gt;</cite>
+works the same as <cite>retina.p.bipolar.&lt;tab&gt;</cite>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>In the following case the Parameter object will be <strong>replaced</strong> by the <em>number</em> <cite>100.0</cite>.
+It will no longer be optimizable or exportable:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">bipolar</span><span class="o">.</span><span class="n">lambda_amp</span> <span class="o">=</span> <span class="mf">100.0</span>      <span class="c1"># &lt;- .p is missing!</span>
+</pre></div>
+</div>
+<p>Instead you can use <cite>.set()</cite> to set the value, or replace the Parameter with
+a new Parameter:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">bipolar</span><span class="o">.</span><span class="n">lambda_amp</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mf">100.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">bipolar</span><span class="p">[</span><span class="s2">&quot;lambda_amp&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mf">100.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Another feature of the <cite>.p.</cite> list are the special attributes <cite>_all</cite> and <cite>_search</cite>.
+<cite>.p._all.</cite> gives you tab completable list without hierarchy, ie. all variables can
+be seen at once.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">_all</span><span class="o">.&lt;</span><span class="n">tab</span><span class="o">&gt;</span>
+<span class="go">gang_0_input_spatial_pooling_weight, gang_1_spikes_refr_sigma, gang_0_input_i_0, gang_1_spikes_noise_sigma, bipolar_lambda_amp, gang_1_input_sign, gang_0_input_lambda_G, gang_0_input_transient_tau_center, gang_1_spikes_refr_mu, gang_1_input_sigma_surround, gang_1_input_spatial_pooling_bias, bipolar_input_amp, gang_0_input_v_0, gang_0_spikes_tau, gang_1_input_transient_relative_weight_center, gang_1_input_transient_tau_center, bipolar_conv2d_weight, gang_0_input_sign, gang_0_spikes_refr_sigma, bipolar_g_leak, gang_0_spikes_refr_mu, gang_0_input_transient_weight, bipolar_tau, gang_1_spikes_tau, gang_1_input_f_transient, gang_0_spikes_g_L, gang_1_input_lambda_G, gang_1_spikes_g_L, gang_0_input_transient_relative_weight_center, gang_0_input_f_transient, gang_0_input_sigma_surround, gang_1_input_v_0, gang_0_spikes_noise_sigma, gang_1_input_i_0, opl_opl_filter_relative_weight, gang_1_input_transient_weight</span>
+</pre></div>
+</div>
+<p>The <cite>_search</cite> attribute can search in this list for any substring:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">_search</span><span class="o">.</span><span class="n">lam</span><span class="o">.&lt;</span><span class="n">tab</span><span class="o">&gt;</span>
+<span class="go">gang_1_input_lambda_G, bipolar_lambda_amp, gang_0_input_lambda_G</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">_search</span><span class="o">.</span><span class="n">i_0</span><span class="o">.&lt;</span><span class="n">tab</span><span class="o">&gt;</span>
+<span class="go">gang_0_input_i_0, gang_1_input_i_0</span>
+</pre></div>
+</div>
+<p>Both of these can be iterated over instead of tab-completed:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">_search</span><span class="o">.</span><span class="n">i_0</span><span class="p">:</span>
+<span class="go">        p.set(10.0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">name</span><span class="p">,</span><span class="n">p</span> <span class="ow">in</span> <span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">_search</span><span class="o">.</span><span class="n">i_0</span><span class="o">.</span><span class="n">__iteritems</span><span class="p">():</span>
+<span class="go">        print(name)</span>
+<span class="go">        p.set(10.0)</span>
+<span class="go">gang_0_input_i_0</span>
+<span class="go">gang_1_input_i_0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuring-a-model-exporting-and-importing-all-parameters">
+<h3>Configuring a Model: exporting and importing all parameters<a class="headerlink" href="#configuring-a-model-exporting-and-importing-all-parameters" title="Permalink to this headline">¶</a></h3>
+<p>You can get a dictionary of all parameter values</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">retina</span><span class="o">.</span><span class="n">get_parameters</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;opl_opl_filter_surround_E_tau&#39;</span><span class="p">]</span>
+<span class="go">array([0.004], dtype=float32)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;opl_opl_filter_surround_E_tau&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">set_parameters</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="switching-between-cpu-and-gpu-usage">
+<h3>Switching between CPU and GPU usage<a class="headerlink" href="#switching-between-cpu-and-gpu-usage" title="Permalink to this headline">¶</a></h3>
+<p>PyTorch objects can move between GPU memory and RAM by calling <cite>.cuda()</cite> and <cite>.cpu()</cite> methods respectively. This can be done on a single Tensor or on an entire model.</p>
+</div>
+<div class="section" id="enabling-and-disabling-the-computational-graph">
+<h3>Enabling and disabling the computational graph<a class="headerlink" href="#enabling-and-disabling-the-computational-graph" title="Permalink to this headline">¶</a></h3>
+<p id="disable-graph">Each <a class="reference internal" href="docs.html#convis.variables.Parameter" title="convis.variables.Parameter"><code class="xref py py-class docutils literal"><span class="pre">Parameter</span></code></a> has by default its <cite>requires_grad</cite> attribute set to <cite>True</cite>,
+which means that every operation done with this Parameter will be recorded, so that
+we can use backpropagation at some later timepoint. This can use a lot of memory,
+especially in recursive filters, and you might not even need the computational graph.</p>
+<p>To disable the graph for a <strong>single Parameter</strong> or Variable, supply the constructor with the
+keyword argument <cite>requires_grad</cite> or call its <a class="reference internal" href="docs.html#convis.variables.Parameter.requires_grad_" title="convis.variables.Parameter.requires_grad_"><code class="xref py py-meth docutils literal"><span class="pre">requires_grad_()</span></code></a>
+method after the Parameter was created. The trailing underscore signifies that the method
+will be executed <em>in place</em> and does not produce a copy of the variable.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">convis</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">variables</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="c1"># or later:</span>
+<span class="kn">import</span> <span class="nn">convis</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">variables</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For a <strong>complete Layer</strong>, there is a helper function <a class="reference internal" href="docs.html#convis.base.Layer.requires_grad_" title="convis.base.Layer.requires_grad_"><code class="xref py py-meth docutils literal"><span class="pre">requires_grad_()</span></code></a>
+that will set the flag for all the contained Parameters:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">convis</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">LN</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Globally</strong>, graphs can be disabled with the <cite>convis.default_grad_enabled</cite> variable:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">convis</span>
+<span class="n">convis</span><span class="o">.</span><span class="n">default_grad_enabled</span> <span class="o">=</span> <span class="bp">False</span> <span class="c1"># disables computational graphs by default</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-runner-objects">
+<h3>Using Runner objects<a class="headerlink" href="#using-runner-objects" title="Permalink to this headline">¶</a></h3>
+<p>Runner objects can execute a model on a fixed set of input and output streams.
+The execution can also happen in a separate thread:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">convis</span><span class="o">,</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="n">inp</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">streams</span><span class="o">.</span><span class="n">RandomStream</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span><span class="n">pixel_per_degree</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="n">level</span><span class="o">=</span><span class="mf">100.2</span><span class="p">,</span><span class="n">mean</span><span class="o">=</span><span class="mf">128.0</span><span class="p">)</span>
+<span class="n">out1</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">streams</span><span class="o">.</span><span class="n">SequenceStream</span><span class="p">(</span><span class="n">sequence</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)),</span> <span class="n">max_frames</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">retina</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">retina</span><span class="o">.</span><span class="n">Retina</span><span class="p">()</span>
+<span class="n">runner</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">Runner</span><span class="p">(</span><span class="n">retina</span><span class="p">,</span> <span class="nb">input</span> <span class="o">=</span> <span class="n">inp</span><span class="p">,</span> <span class="n">output</span> <span class="o">=</span> <span class="n">out1</span><span class="p">)</span>
+<span class="n">runner</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># let thread run for 5 seconds or longer</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">out1</span><span class="o">.</span><span class="n">sequence</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+<span class="c1"># some time later</span>
+<span class="n">runner</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="optimizing-a-model">
+<h2>Optimizing a Model<a class="headerlink" href="#optimizing-a-model" title="Permalink to this headline">¶</a></h2>
+<p>One way to optimize a model is by using the <code class="xref py py-meth docutils literal"><span class="pre">set_optimizer()</span></code> attribute and the <a class="reference internal" href="docs.html#convis.base.Layer.optimize" title="convis.base.Layer.optimize"><code class="xref py py-meth docutils literal"><span class="pre">optimize()</span></code></a> method:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">LN</span><span class="p">()</span>
+<span class="n">l</span><span class="o">.</span><span class="n">set_optimizer</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span> <span class="c1"># selects an optimizer with arguments</span>
+<span class="c1">#l.optimize(some_inp, desired_outp) # does the optimization with the selected optimizer</span>
+</pre></div>
+</div>
+<p>A full example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">convis</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="n">l_goal</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">LN</span><span class="p">()</span>
+<span class="n">k_goal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">l_goal</span><span class="o">.</span><span class="n">conv</span><span class="o">.</span><span class="n">set_weight</span><span class="p">(</span><span class="n">k_goal</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">l_goal</span><span class="o">.</span><span class="n">conv</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,:,:,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">l_goal</span><span class="o">.</span><span class="n">conv</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">LN</span><span class="p">()</span>
+<span class="n">l</span><span class="o">.</span><span class="n">conv</span><span class="o">.</span><span class="n">set_weight</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)),</span><span class="n">normalize</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">l</span><span class="o">.</span><span class="n">set_optimizer</span><span class="o">.</span><span class="n">LBFGS</span><span class="p">()</span>
+<span class="c1"># optional conversion to GPU objects:</span>
+<span class="c1">#l.cuda()</span>
+<span class="c1">#l_goal.cuda()</span>
+<span class="n">inp</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">inp</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">inp</span><span class="p">))</span> <span class="c1"># .cuda() # optional: conversion to GPU object</span>
+<span class="n">outp</span> <span class="o">=</span> <span class="n">l_goal</span><span class="p">(</span><span class="n">inp</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">,:,:,:])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">l_goal</span><span class="o">.</span><span class="n">conv</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,:,:,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
+    <span class="n">l</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">inp</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">,:,:,:],</span><span class="n">outp</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="mi">10</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">conv</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,:,:,:]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">conv</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">l</span><span class="o">.</span><span class="n">conv</span><span class="o">.</span><span class="n">weight</span><span class="o">-</span><span class="n">l_goal</span><span class="o">.</span><span class="n">conv</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span><span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//usage-1.py">Source code</a>)</p>
+<div class="figure" id="id3">
+<img alt="_images/usage-1_00.png" src="_images/usage-1_00.png" />
+<p class="caption"><span class="caption-text">(<a class="reference external" href=".//usage-1_00.png">png</a>, <a class="reference external" href=".//usage-1_00.hires.png">hires.png</a>, <a class="reference external" href=".//usage-1_00.pdf">pdf</a>)</span></p>
+</div>
+<div class="figure" id="id4">
+<img alt="_images/usage-1_01.png" src="_images/usage-1_01.png" />
+<p class="caption"><span class="caption-text">(<a class="reference external" href=".//usage-1_01.png">png</a>, <a class="reference external" href=".//usage-1_01.hires.png">hires.png</a>, <a class="reference external" href=".//usage-1_01.pdf">pdf</a>)</span></p>
+</div>
+<div class="figure" id="id5">
+<img alt="_images/usage-1_02.png" src="_images/usage-1_02.png" />
+<p class="caption"><span class="caption-text">(<a class="reference external" href=".//usage-1_02.png">png</a>, <a class="reference external" href=".//usage-1_02.hires.png">hires.png</a>, <a class="reference external" href=".//usage-1_02.pdf">pdf</a>)</span></p>
+</div>
+<div class="figure" id="id6">
+<img alt="_images/usage-1_03.png" src="_images/usage-1_03.png" />
+<p class="caption"><span class="caption-text">(<a class="reference external" href=".//usage-1_03.png">png</a>, <a class="reference external" href=".//usage-1_03.hires.png">hires.png</a>, <a class="reference external" href=".//usage-1_03.pdf">pdf</a>)</span></p>
+</div>
+<div class="figure" id="id7">
+<img alt="_images/usage-1_04.png" src="_images/usage-1_04.png" />
+<p class="caption"><span class="caption-text">(<a class="reference external" href=".//usage-1_04.png">png</a>, <a class="reference external" href=".//usage-1_04.hires.png">hires.png</a>, <a class="reference external" href=".//usage-1_04.pdf">pdf</a>)</span></p>
+</div>
+<p>When selecting an Optimizer, the full list of available Optimizers can be seen by tab-completion.</p>
+<p>Some interesting optimizers are:</p>
+<blockquote>
+<div><ul class="simple">
+<li>SGD: Stochastic Gradient Descent - one of the simplest possible methods, can also take a momentum term as an option</li>
+<li>Adagrad/Adadelta/Adam/etc.: Accelerated Gradient Descent methods - adapt the learning rate</li>
+<li>LBFGS: Broyden-Fletcher–Goldfarb-Shanno (Quasi-Newton) method - very fast for many almost linear parameters</li>
+</ul>
+</div></blockquote>
+<div class="section" id="using-an-optimizer-by-hand">
+<h3>Using an Optimizer by Hand<a class="headerlink" href="#using-an-optimizer-by-hand" title="Permalink to this headline">¶</a></h3>
+<p>The normal PyTorch way to call Optimizers is to fill the gradient buffers by hand and then calling <a class="reference external" href="https://pytorch.org/docs/0.3.0/optim.html#torch.optim.Optimizer.step" title="(in PyTorch vmaster (0.3.0.post4 ))"><code class="xref py py-meth docutils literal"><span class="pre">step()</span></code></a> (see also <a class="reference external" href="http://pytorch.org/docs/master/optim.html">http://pytorch.org/docs/master/optim.html</a> ).</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">convis</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="n">l_goal</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">LN</span><span class="p">()</span>
+<span class="n">k_goal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">l_goal</span><span class="o">.</span><span class="n">conv</span><span class="o">.</span><span class="n">set_weight</span><span class="p">(</span><span class="n">k_goal</span><span class="p">)</span>
+<span class="n">inp</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">inp</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">inp</span><span class="p">))</span>
+<span class="n">outp</span> <span class="o">=</span> <span class="n">l_goal</span><span class="p">(</span><span class="n">inp</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">,:,:,:])</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">LN</span><span class="p">()</span>
+<span class="n">l</span><span class="o">.</span><span class="n">conv</span><span class="o">.</span><span class="n">set_weight</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)),</span><span class="n">normalize</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
+    <span class="c1"># first the gradient buffer have to be set to 0</span>
+    <span class="c1">#optimizer.zero_grad()</span>
+    <span class="c1"># then the computation is done</span>
+    <span class="n">o</span> <span class="o">=</span> <span class="n">l</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
+    <span class="c1"># and some loss measure is used to compare the output to the goal</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="p">((</span><span class="n">outp</span><span class="o">-</span><span class="n">o</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="c1"># eg. mean square error</span>
+    <span class="c1"># applying the backward computation fills all gradient buffers with the corresponding gradients</span>
+    <span class="c1">#loss.backward(retain_graph=True)</span>
+    <span class="c1"># now that the gradients have the correct values, the optimizer can perform one optimization step</span>
+    <span class="c1">#optimizer.step()</span>
+</pre></div>
+</div>
+<p>Or using a closure function, which is necessary for advanced optimizers that need to re-evaluate the loss at different parameter values:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">LN</span><span class="p">()</span>
+<span class="n">l</span><span class="o">.</span><span class="n">conv</span><span class="o">.</span><span class="n">set_weight</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)),</span><span class="n">normalize</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">LBFGS</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">closure</span><span class="p">():</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    <span class="n">o</span> <span class="o">=</span> <span class="n">l</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="p">((</span><span class="n">outp</span><span class="o">-</span><span class="n">o</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">retain_graph</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">loss</span>
+
+<span class="c1">#for i in range(50):</span>
+<span class="c1">#    optimizer.step(closure)</span>
+</pre></div>
+</div>
+<p>The <cite>.optimize</cite> method of <a href="#id1"><span class="problematic" id="id2">`</span></a>convis.Layer`s does exactly the same as the code above. It is also possible to supply it with alternate optimizers and loss functions:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">LN</span><span class="p">()</span>
+<span class="n">l</span><span class="o">.</span><span class="n">conv</span><span class="o">.</span><span class="n">set_weight</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)),</span><span class="n">normalize</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">opt2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">LBFGS</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
+<span class="c1">#l.optimize(inp[None,None,:,:,:],outp, optimizer=opt2, loss_fn = lambda x,y: (x-y).abs().sum()) # using LBFGS (without calling .set_optimizer) and another loss function</span>
+</pre></div>
+</div>
+<p><code class="xref py py-attr docutils literal"><span class="pre">.set_optimizer.*()</span></code> will automatically include all the parameters in the model, if no generator/list of parameters is used as the first argument.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Jacob Huth.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.6.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

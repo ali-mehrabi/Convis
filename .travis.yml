@@ -1,0 +1,31 @@
+language: python
+sudo: false
+os:
+  - linux
+python:
+  - "2.7"
+  - "3.6"
+addons:
+  # numpy is hard to install on travis!
+  apt:
+    packages:
+    - libblas-dev
+    - liblapack-dev
+    - gfortran
+env:
+    - REQUIREMENTS=requirements_stable.txt
+    - REQUIREMENTS=requirements.txt
+before_install:
+  - pip install -U pip
+# command to install dependencies
+install: 
+  - if [[ $TRAVIS_PYTHON_VERSION == 2.7 ]]; then pip install torch torchvision; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then pip3 install torch torchvision; fi
+  - travis_wait travis_retry pip install -r $REQUIREMENTS
+# command to run tests
+script: python -m convis.tests
+cache:
+  - apt
+  - directories:
+    - $HOME/.cache/pip
+    - $HOME/.theano

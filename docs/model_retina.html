@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Retina Model &mdash; convis 0.6.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="convis 0.6.4 documentation" href="index.html"/>
+        <link rel="up" title="Models" href="model.html"/>
+        <link rel="next" title="Linear-Nonlinear Models" href="model_ln.html"/>
+        <link rel="prev" title="Models" href="model.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> convis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.6
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Features</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="filters.html">Filters and Layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytorch_basics.html">PyTorch Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytorch_basics.html#pytorch-extensions-in-convis">PyTorch Extensions in Convis</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="model.html">Models</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Retina Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general-overview">General Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-the-retina-model-directly">Configuring the Retina Model directly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurating-the-retina-model-with-xml-files">Configurating the Retina Model with xml files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#retina-filters">Retina Filters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="model_ln.html">Linear-Nonlinear Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_McIntosh.html">A Convolutional Retina Model</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="docs.html">The API: Convis classes and modules</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">convis</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="model.html">Models</a> &raquo;</li>
+        
+      <li>Retina Model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/model_retina.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="retina-model">
+<span id="model-retina"></span><h1>Retina Model<a class="headerlink" href="#retina-model" title="Permalink to this headline">¶</a></h1>
+<p>This module implements a spiking retina model in python and theano.</p>
+<p>It is based on the VirtualRetina Simualtor [Wohrer 2008].</p>
+<div class="section" id="general-overview">
+<h2>General Overview<a class="headerlink" href="#general-overview" title="Permalink to this headline">¶</a></h2>
+<p>The formulas on which the classes are based are:</p>
+<p>$$C(x,y,t) = G * T(wu,Tu) * E(n,t) * L (x,y,t)$$
+$$S(x,y,t) = G * E * C(x,y,t)$$
+$$I_{OLP}(x,y,t) = lambda_{OPL}(C(x,y,t) - w_{OPL} S(x,y,t)_)$$
+$$\frac{dV_{Bip}}{dt} (x,y,t) = I_{OLP}(x,y,t) - g_{A}(x,y,t)dV_{Bip}(x,y,t)$$
+$$g_{A}(x,y,t) = G * E * Q(V{Bip})(x,y,t)`with $Q(V{Bip}) = g_{A}^{0} + lambda_{A}V^2_{Bip}$$
+$$I_{Gang}(x,y,t) = G * N(eT * V_{Bip})$$</p>
+<p>with <span class="math">\(N(V) = \\\\frac{i^0_G}{1-\lambda(V-v^0_G)/i^0_G}\)</span> (if <span class="math">\(V &lt; v^0_G\)</span>)</p>
+<p>with <span class="math">\(N(V) = i^0_G + \lambda(V-v^0_G)\)</span> (if  <span class="math">\(V &gt; v^0_G\)</span>)</p>
+<img alt="_images/dot_test_3.png" src="_images/dot_test_3.png" />
+</div>
+<div class="section" id="configuring-the-retina-model-directly">
+<h2>Configuring the Retina Model directly<a class="headerlink" href="#configuring-the-retina-model-directly" title="Permalink to this headline">¶</a></h2>
+<p>The best way to configure the model is by exploring the
+structure with tab completion of the <cite>.p.</cite> parameter list.
+The retina model will give you first the list of layers and
+then the list of parameters of each layer.</p>
+<p>To change the values, you can use the method <cite>.set</cite>, or
+(<em>but only if you use the `.p.` list</em>) by assigning a new value
+to the parameter directly.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">retina</span><span class="o">.</span><span class="n">Retina</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.&lt;</span><span class="n">tab</span><span class="o">&gt;</span>
+<span class="go">    opl, bipolar, gang_0_input, gang_0_spikes, gang_1_input, gang_1_spikes</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">bipolar</span><span class="o">.</span><span class="n">lambda_amp</span>
+<span class="go">Parameter containing:</span>
+<span class="go">tensor([ 0.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">bipolar</span><span class="o">.</span><span class="n">lambda_amp</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mf">100.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">bipolar</span><span class="o">.</span><span class="n">lambda_amp</span> <span class="o">=</span> <span class="mf">100.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">bipolar</span><span class="o">.</span><span class="n">lambda_amp</span>
+<span class="go">Parameter containing:</span>
+<span class="go">tensor([ 100.])</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>What will not work:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">bipolar</span><span class="o">.</span><span class="n">lambda_amp</span> <span class="o">=</span> <span class="mf">100.0</span>      <span class="c1"># &lt;- .p is missing!</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">bipolar</span><span class="p">[</span><span class="s2">&quot;lambda_amp&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">100.0</span> <span class="c1">#</span>
+</pre></div>
+</div>
+<p>In both cases, the Parameter will be <strong>replaced</strong> by the number <cite>100.0</cite>. It will no longer be
+Instead you can use <cite>.set()</cite>:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">bipolar</span><span class="o">.</span><span class="n">lambda_amp</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mf">100.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">bipolar</span><span class="p">[</span><span class="s2">&quot;lambda_amp&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mf">100.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">bipolar</span><span class="p">[</span><span class="s2">&quot;lambda_amp&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;new parameter replacing the old one&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Also you can get a dictionary of configuration values and change the parameters there or save and
+load them to and from a json file:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">retina</span><span class="o">.</span><span class="n">get_parameters</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;opl_opl_filter_surround_E_tau&#39;</span><span class="p">]</span>
+<span class="go">array([0.004], dtype=float32)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;opl_opl_filter_surround_E_tau&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">set_parameters</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configurating-the-retina-model-with-xml-files">
+<h2>Configurating the Retina Model with xml files<a class="headerlink" href="#configurating-the-retina-model-with-xml-files" title="Permalink to this headline">¶</a></h2>
+<p>The retina model is <a class="reference internal" href="docs_retina.html#convis.retina.Retina" title="convis.retina.Retina"><code class="xref py py-mod docutils literal"><span class="pre">convis.retina.Retina</span></code></a> and can be configured
+with a <code class="xref py py-mod docutils literal"><span class="pre">convis.retina.RetinaConfiguration</span></code> that can be loaded
+from a VirtualRetina xml file:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">retina</span><span class="o">.</span><span class="n">Retina</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">conf</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">retina</span><span class="o">.</span><span class="n">RetinaConfiguration</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">conf</span><span class="o">.</span><span class="n">load_xml</span><span class="p">(</span><span class="s1">&#39;some_file.xml&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">conf</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">..</span><span class="p">,</span> <span class="o">..</span><span class="p">)</span> <span class="c1"># changing some values before configuring the model</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">parse_config</span><span class="p">(</span><span class="n">conf</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># or more simply:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">parse_config</span><span class="p">(</span><span class="s1">&#39;some_file.xml&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="retina-filters">
+<h2>Retina Filters<a class="headerlink" href="#retina-filters" title="Permalink to this headline">¶</a></h2>
+<p>The stages of the VirtualRetina model correspond to the <a class="reference internal" href="docs.html#module-convis" title="convis"><code class="xref py py-mod docutils literal"><span class="pre">convis</span></code></a> classes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt><a class="reference internal" href="docs_retina.html#convis.filters.retina.OPL" title="convis.filters.retina.OPL"><code class="xref py py-class docutils literal"><span class="pre">convis.filters.retina.OPL</span></code></a> holds only a reference to the actually used opl implementation:</dt>
+<dd><ul class="first last">
+<li><a class="reference internal" href="docs_retina.html#convis.filters.retina.RecursiveOPLFilter" title="convis.filters.retina.RecursiveOPLFilter"><code class="xref py py-class docutils literal"><span class="pre">convis.filters.retina.RecursiveOPLFilter</span></code></a> (all recursive)</li>
+<li><a class="reference internal" href="docs_retina.html#convis.filters.retina.HalfRecursiveOPLFilter" title="convis.filters.retina.HalfRecursiveOPLFilter"><code class="xref py py-class docutils literal"><span class="pre">convis.filters.retina.HalfRecursiveOPLFilter</span></code></a> (default, temporally recursive, spatial convolution)</li>
+<li><a class="reference internal" href="docs_retina.html#convis.filters.retina.SeperatableOPLFilter" title="convis.filters.retina.SeperatableOPLFilter"><code class="xref py py-class docutils literal"><span class="pre">convis.filters.retina.SeperatableOPLFilter</span></code></a> (spatial and temporal convolutions, but still computed as separate filters)</li>
+<li><a class="reference internal" href="docs_retina.html#convis.filters.retina.FullConvolutionOPLFilter" title="convis.filters.retina.FullConvolutionOPLFilter"><code class="xref py py-class docutils literal"><span class="pre">convis.filters.retina.FullConvolutionOPLFilter</span></code></a> (a single spatio-temporal convolution filter)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><a class="reference internal" href="docs_retina.html#convis.filters.retina.Bipolar" title="convis.filters.retina.Bipolar"><code class="xref py py-class docutils literal"><span class="pre">convis.filters.retina.Bipolar</span></code></a> performs contrast gain control</li>
+<li><a class="reference internal" href="docs_retina.html#convis.filters.retina.GanglionInput" title="convis.filters.retina.GanglionInput"><code class="xref py py-class docutils literal"><span class="pre">convis.filters.retina.GanglionInput</span></code></a> performs spatial pooling and a static non-linearity</li>
+<li><code class="xref py py-class docutils literal"><span class="pre">convis.filters.retina.GanglionSpikes</span></code> creates spikes</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="model_ln.html" class="btn btn-neutral float-right" title="Linear-Nonlinear Models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="model.html" class="btn btn-neutral" title="Models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Jacob Huth.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.6.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

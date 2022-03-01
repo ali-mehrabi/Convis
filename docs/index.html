@@ -1,0 +1,395 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Welcome to the documentation of Convis &mdash; convis 0.6.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="convis 0.6.4 documentation" href="#"/>
+        <link rel="next" title="Installation" href="installation.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> convis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.6
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="filters.html">Filters and Layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytorch_basics.html">PyTorch Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytorch_basics.html#pytorch-extensions-in-convis">PyTorch Extensions in Convis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Models</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="docs.html">The API: Convis classes and modules</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">convis</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Welcome to the documentation of Convis</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="welcome-to-the-documentation-of-convis">
+<h1>Welcome to the documentation of Convis<a class="headerlink" href="#welcome-to-the-documentation-of-convis" title="Permalink to this headline">¶</a></h1>
+<p>Convis lets you build vision models using PyTorch.</p>
+<p>Want to jump right in? Have a look at these quickstart guides:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="examples.html#quickstart-fitting"><span class="std std-ref">“I’m an experimentalist and I want to fit models to my data”</span></a></li>
+<li><a class="reference internal" href="examples.html#quickstart-simulator"><span class="std std-ref">“I need spiking activity that looks like it’s coming from the retina”</span></a></li>
+</ul>
+</div></blockquote>
+<p>Get it on <a class="reference external" href="https://github.com/jahuth/convis">github</a>!</p>
+<p>When using <cite>convis</cite> for your scientific publications, please cite:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Huth J, Masquelier T and Arleo A (2018) Convis: A Toolbox to Fit and Simulate Filter-Based Models of Early Visual Processing. Front. Neuroinform. 12:9. doi: 10.3389/fninf.2018.00009 <a class="reference external" href="https://www.frontiersin.org/articles/10.3389/fninf.2018.00009/full">link</a></li>
+</ul>
+</div></blockquote>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Installing <cite>convis</cite> and <cite>PyTorch</cite> itself is not complicated.
+Go to <a class="reference external" href="http://pytorch.org">http://pytorch.org</a> and follow the installation instructions, either for <cite>pip</cite> or <cite>conda</cite>.</p>
+<p>Requirements for the base installation are: Python 2.7 or Python 3.6 and PyTorch. All other requirements are installed when running:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">convis</span>
+</pre></div>
+</div>
+<p>or for the most recent version:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">jahuth</span><span class="o">/</span><span class="n">convis</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>I recommend installing opencv, and jupyter notebook, if you do not already have it installed:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">convis</span> <span class="n">notebook</span>
+<span class="c1"># eg. for ubuntu:</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">opencv</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="found-a-bug-or-want-to-contribute">
+<h2>Found a bug or want to contribute?<a class="headerlink" href="#found-a-bug-or-want-to-contribute" title="Permalink to this headline">¶</a></h2>
+<p>Bug reports and feature requests are always welcome!
+The best place to put them is the <a class="reference external" href="https://github.com/jahuth/convis/issues">github issue tracker</a>.
+If you have questions about usage of functions and classes and can not find
+an answer in the documentation and docstrings, this is considered a bug and I appreciate
+it if you open an issue for that!</p>
+<p>If you want, you can flag your issue already with one of the labels:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://github.com/jahuth/convis/labels/bug">bug</a></li>
+<li><a class="reference external" href="https://github.com/jahuth/convis/labels/enhancement">enhancement</a></li>
+<li><a class="reference external" href="https://github.com/jahuth/convis/labels/missing%20documentation">missing documentation</a></li>
+<li><a class="reference external" href="https://github.com/jahuth/convis/labels/question">question</a></li>
+</ul>
+</div></blockquote>
+<p>If you have fixed a bug or added a feature and you would like to see the change
+included in the main repository, the preferred method is for you to commit the
+change to a fork on your own github account and submit a pull request.</p>
+<dl class="docutils">
+<dt>General discussion is encouraged on the two mailing lists:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://groups.google.com/forum/#!forum/convis-users">convis-users&#64;googlegroups.com</a> for announcements and user questions</li>
+<li><a class="reference external" href="https://groups.google.com/forum/#!forum/convis-dev">convis-dev&#64;googlegroups.com</a> for discussions about the development</li>
+</ul>
+</dd>
+</dl>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#running-a-model">Running a model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#optimizing-a-model">Optimizing a Model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#quickstart-generating-spikes">Quickstart: Generating Spikes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#quickstart-fitting-models-to-data">Quickstart: Fitting models to data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#quickstart-running-convis-as-a-simulator">Quickstart: Running Convis as a simulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#running-a-model">Running a Model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#current-github-version">0.6.4 (current github version)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">0.6.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">0.6.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">0.6.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">0.6</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="filters.html">Filters and Layers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="filters.html#convolution-filters">Convolution Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filters.html#receptive-fields">Receptive Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filters.html#recursive-temporal-filters">Recursive Temporal Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filters.html#nonlinearities">Nonlinearities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filters.html#module-convis.filters.spiking">Spike Generation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pytorch_basics.html">PyTorch Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pytorch_basics.html#tensor-computing-with-torch-tensor">Tensor computing with <cite>torch.tensor</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytorch_basics.html#automated-differentiation-with-torch-autograd">Automated differentiation with <cite>torch.autograd</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytorch_basics.html#model-building-with-torch-nn">Model building with <cite>torch.nn</cite></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pytorch_basics.html#pytorch-extensions-in-convis">PyTorch Extensions in Convis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pytorch_basics.html#layer">Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytorch_basics.html#output">Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytorch_basics.html#extending-conv3d">Extending Conv3d</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model_retina.html">Retina Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_ln.html">Linear-Nonlinear Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model_McIntosh.html">A Convolutional Retina Model</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="docs.html">The API: Convis classes and modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docs_filters.html">Filters <cite>convis.filters</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs_models.html">Models in <cite>convis.models</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs_models.html#module-convis.layers">Finding all Layers in one submodules <cite>convis.layers</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs_retina.html">VirtualRetina-like Simulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs_streams.html">Streams <cite>convis.streams</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs_optimizer.html">Optimizers <cite>convis.optimizer</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs_tests.html">Automatic Tests <cite>convis.tests</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs.html#module-convis.base">Base classes <cite>convis.base</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs.html#variables-convis-variables">Variables <cite>convis.variables</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs.html#module-convis.utils">Utilitary methods <cite>convis.utils</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs.html#sample-data-convis-samples">Sample Data <cite>convis.samples</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs.html#module-convis.variable_describe">Methods to describe objects <cite>convis.variable_describe</cite></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="indices">
+<h3>Indices<a class="headerlink" href="#indices" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Jacob Huth.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.6.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,2033 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The API: Convis classes and modules &mdash; convis 0.6.4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="convis 0.6.4 documentation" href="index.html"/>
+        <link rel="next" title="Filters convis.filters" href="docs_filters.html"/>
+        <link rel="prev" title="A Convolutional Retina Model" href="model_McIntosh.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> convis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.6
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="filters.html">Filters and Layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytorch_basics.html">PyTorch Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytorch_basics.html#pytorch-extensions-in-convis">PyTorch Extensions in Convis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Models</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The API: Convis classes and modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docs_filters.html">Filters <cite>convis.filters</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs_models.html">Models in <cite>convis.models</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs_models.html#module-convis.layers">Finding all Layers in one submodules <cite>convis.layers</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs_retina.html">VirtualRetina-like Simulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs_streams.html">Streams <cite>convis.streams</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs_optimizer.html">Optimizers <cite>convis.optimizer</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs_tests.html">Automatic Tests <cite>convis.tests</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-convis.base">Base classes <cite>convis.base</cite></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#convis-base-classes">Convis base classes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#variables-convis-variables">Variables <cite>convis.variables</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-convis.utils">Utilitary methods <cite>convis.utils</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sample-data-convis-samples">Sample Data <cite>convis.samples</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-convis.variable_describe">Methods to describe objects <cite>convis.variable_describe</cite></a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">convis</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>The API: Convis classes and modules</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/docs.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-api-convis-classes-and-modules">
+<h1><a class="toc-backref" href="#id5">The API: Convis classes and modules</a><a class="headerlink" href="#the-api-convis-classes-and-modules" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#the-api-convis-classes-and-modules" id="id5">The API: Convis classes and modules</a><ul>
+<li><a class="reference internal" href="#module-convis.base" id="id6">Base classes <cite>convis.base</cite></a></li>
+<li><a class="reference internal" href="#variables-convis-variables" id="id7">Variables <cite>convis.variables</cite></a></li>
+<li><a class="reference internal" href="#module-convis.utils" id="id8">Utilitary methods <cite>convis.utils</cite></a></li>
+<li><a class="reference internal" href="#sample-data-convis-samples" id="id9">Sample Data <cite>convis.samples</cite></a></li>
+<li><a class="reference internal" href="#module-convis.variable_describe" id="id10">Methods to describe objects <cite>convis.variable_describe</cite></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Further Submodules:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="docs_filters.html">Filters <cite>convis.filters</cite></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docs_filters.html#kernels-convis-kernels">Kernels <cite>convis.kernels</cite></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docs_models.html">Models in <cite>convis.models</cite></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docs_models.html#convis-models">Convis Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs_models.html#combinators">Combinators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs_models.html#linear-nonlinear-models">Linear-Nonlinear Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs_models.html#convolution-model">Convolution Model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docs_models.html#module-convis.layers">Finding all Layers in one submodules <cite>convis.layers</cite></a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs_retina.html">VirtualRetina-like Simulator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docs_retina.html#general-overview">General Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs_retina.html#references">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs_retina.html#module-convis.retina"><cite>convis.retina</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs_retina.html#module-convis.filters.retina"><cite>convis.filters.retina</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs_retina.html#convis-retina-virtualretina"><cite>convis.retina_virtualretina</cite></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docs_streams.html">Streams <cite>convis.streams</cite></a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs_optimizer.html">Optimizers <cite>convis.optimizer</cite></a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs_tests.html">Automatic Tests <cite>convis.tests</cite></a></li>
+</ul>
+</div>
+<span class="target" id="module-convis"></span><dl class="function">
+<dt id="convis.set_steps_per_second">
+<code class="descclassname">convis.</code><code class="descname">set_steps_per_second</code><span class="sig-paren">(</span><em>sps</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis.html#set_steps_per_second"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.set_steps_per_second" title="Permalink to this definition">¶</a></dt>
+<dd><p>changes the default scaling of temporal constants.</p>
+<p>Does not consistently work retroactively, 
+so if you want to change it, do it before anything else.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="convis.set_pixel_per_degree">
+<code class="descclassname">convis.</code><code class="descname">set_pixel_per_degree</code><span class="sig-paren">(</span><em>ppd</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis.html#set_pixel_per_degree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.set_pixel_per_degree" title="Permalink to this definition">¶</a></dt>
+<dd><p>changes the default scaling of spatial constants.</p>
+<p>Does not consistently work retroactively, 
+so if you want to change it, do it before anything else.</p>
+</dd></dl>
+
+<div class="section" id="module-convis.base">
+<span id="base-classes-convis-base"></span><h2><a class="toc-backref" href="#id6">Base classes <cite>convis.base</cite></a><a class="headerlink" href="#module-convis.base" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="convis-base-classes">
+<h3>Convis base classes<a class="headerlink" href="#convis-base-classes" title="Permalink to this headline">¶</a></h3>
+<p>Convis extends PyTorch by adding some methods to <cite>torch.nn.Module</cite> and calling it a Layer.</p>
+<dl class="class">
+<dt id="convis.base.Output">
+<em class="property">class </em><code class="descclassname">convis.base.</code><code class="descname">Output</code><span class="sig-paren">(</span><em>outs</em>, <em>keys=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Output" title="Permalink to this definition">¶</a></dt>
+<dd><p>This object provides a container for output numpy arrays which are labeled with theano variables.</p>
+<p>The outputs can be queried either by sorted order (like a simple list),
+by the theano variable which represents this output, the name of this variable
+or the full path of the variable.
+To make this meaningfull, provide a name to your output variables.</p>
+<p>In the case of name collisions, the behavior of OrderedDict will use the last variable added.</p>
+<p>The full path names of all variables are also added to this objects __dict__,
+allowing for tab completion.</p>
+<dl class="method">
+<dt id="convis.base.Output.plot">
+<code class="descname">plot</code><span class="sig-paren">(</span><em>k=0</em>, <em>mode=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Output.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Output.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the contents of the Output object.</p>
+<p>To get a line plot:</p>
+<blockquote>
+<div>o.plot(mode=’lines’) # default</div></blockquote>
+<p>To get a matshow plot:</p>
+<blockquote>
+<div>o.plot(mode=’matshow’)</div></blockquote>
+<p>To get plot depending on the shape of the output:</p>
+<blockquote>
+<div>o.plot(mode=None)</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Output.array">
+<code class="descname">array</code><span class="sig-paren">(</span><em>k=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Output.array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Output.array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the contents of the Output object as a numpy array.</p>
+<p>k: number of output (default=0)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Output.mean">
+<code class="descname">mean</code><span class="sig-paren">(</span><em>axis=None</em>, <em>k=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Output.mean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Output.mean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the mean along the supplied axis..
+<cite>axis = None</cite> will compute the mean over all <cite>axis</cite>.</p>
+<p>Equivalent to:</p>
+<blockquote>
+<div>o.array(k).mean(axis)</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="convis.base.prepare_input">
+<code class="descclassname">convis.base.</code><code class="descname">prepare_input</code><span class="sig-paren">(</span><em>a</em>, <em>dims=5</em>, <em>cuda=False</em>, <em>volatile=False</em>, <em>requires_grad=False</em>, <em>dtype='float32'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#prepare_input"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.prepare_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Utility function to broadcast input to 5 dimensions, make it a Tensor,
+wrap it in a Variable and optionally move it to the GPU.</p>
+<p>Short hand for:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="n">a_var</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,:,:,:]),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+
+<span class="kn">from</span> <span class="nn">convis.base</span> <span class="k">import</span> <span class="n">prepare_input</span>
+<span class="n">a_var</span> <span class="o">=</span> <span class="n">prepare_input</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">cuda</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>volatile is ignored for PyTorch 0.4 and above.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="convis.base.shape">
+<code class="descclassname">convis.base.</code><code class="descname">shape</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#shape"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the shape of a Tensor or Variable containing a Tensor.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="convis.base.Layer">
+<em class="property">class </em><code class="descclassname">convis.base.</code><code class="descname">Layer</code><a class="reference internal" href="_modules/convis/base.html#Layer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for modules, layers and models.</p>
+<p><cite>convis.Layer</cite> is a <cite>torch.nn.Module</cite> with some added functionality.</p>
+<p>In addition to a method <cite>forward</cite> that performs the computation, a
+<cite>Layer</cite> object also keeps track of a <em>state</em>, <em>parameter values</em> and 
+an <em>optimizer</em>.</p>
+<p>The <em>state</em> is defined differently than the “state” of <code class="xref py py-class docutils literal"><span class="pre">Module</span></code> state, eg. in <cite>state_dict</cite>, includes all parameters and buffers of the model)
+The values of <em>states</em> are only important between the processing of two consecutive
+inputs, so they usually do not have to be saved to disk, but they have to be stored
+and retrieved (using <cite>get_state</cite> and <cite>set_state</cite>) when moving non-continuously over the input.</p>
+<p>The <em>parameters</em> are variables of the model that have to be configured or fitted 
+to make the model behave in the desired way. The values of these parameters 
+define the response of the model to input and can be optimized to recreate a 
+response observed in some data. 
+These values can be saved to disc to preserve them.</p>
+<p>Layers can hold an internal <em>optimizer</em> that makes it easy to fit the parameters 
+of a model to data.</p>
+<p>To create a Layer, create a subclass with an <cite>__init__</cite> and <cite>forward</cite> method:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">convis</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+
+<span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">convis</span><span class="o">.</span><span class="n">Layer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Model</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">Conv3d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv2</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">Conv3d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+       <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+       <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Just as <cite>Module`s, `Layer`s can include other `Layer`s or `Module`s (ie. its `sublayers</cite>).
+<cite>Variable`s, `Parameter`s and `State`s that are attributes of a Layer or
+its `sublayers</cite> will be registered and can be collected according to their
+class.</p>
+<p>All registered Variables (including Parameters and States), will be moved to the
+corresponding device when calling <cite>.cuda()</cite> or <cite>.cpu()</cite>.</p>
+<p>In contrast to many methods of torch.Tensors, Layer methods are always
+in-place! Using <cite>.cuda()</cite> or <cite>.float()</cite> will return a reference to the 
+original model and not a copy.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference external" href="https://pytorch.org/docs/0.3.0/nn.html#torch.nn.Module" title="(in PyTorch vmaster (0.3.0.post4 ))"><code class="xref py py-obj docutils literal"><span class="pre">torch.nn.Module</span></code></a></dt>
+<dd>torchs layer class</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">convis</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+<span class="gp">&gt;&gt;&gt; </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">convis</span><span class="o">.</span><span class="n">Layer</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="nb">super</span><span class="p">(</span><span class="n">Model</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">Conv3d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="bp">self</span><span class="o">.</span><span class="n">conv2</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">Conv3d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+<p id="tab-completion-example">Selecting an <a class="reference external" href="https://pytorch.org/docs/0.3.0/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (0.3.0.post4 ))"><code class="xref py py-class docutils literal"><span class="pre">Optimizer</span></code></a> and using it with <a class="reference internal" href="#convis.base.Layer.optimize" title="convis.base.Layer.optimize"><code class="xref py py-meth docutils literal"><span class="pre">optimize()</span></code></a>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">LN</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">set_optimizer</span><span class="o">.&lt;</span><span class="n">then</span> <span class="n">press</span> <span class="n">tab</span><span class="o">&gt;</span>
+<span class="go">                    ASGD</span>
+<span class="go">                    Adadelta</span>
+<span class="go">                    Adagrad</span>
+<span class="go">                    Adam</span>
+<span class="go">                    ...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">set_optimizer</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span><span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The list of parameters as first argument can be omitted
+and will be filled with all parameters of the model by
+default. Other parameters are passed through to the optimizer
+eg. the learning rate <code class="xref py py-attr docutils literal"><span class="pre">lr</span></code> in this example.</p>
+<p id="tab-completion-special-attributes-example">The special attributes <cite>p</cite>,`m`,`s` and <cite>user_parameters</cite>
+provide tab-completion for parameters, submodules and states:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">retina</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">retina</span><span class="o">.</span><span class="n">p</span>
+<span class="go">Parameters of the model (see also .user_parameters)</span>
+<span class="go">Choices: gang_0_spikes, gang_1_spikes, gang_0_input, gang_1_input, bipolar, opl</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">retina</span><span class="o">.</span><span class="n">user_parameters</span>
+<span class="go">Parameters of the model that can be set by the user.</span>
+<span class="go">Choices: gang_0_spikes, gang_1_spikes, gang_0_input, gang_1_input, bipolar, opl</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">retina</span><span class="o">.</span><span class="n">p</span>
+<span class="go">Modules of the model</span>
+<span class="go">Choices: _self, gang_0_spikes, gang_1_spikes, gang_0_input, gang_1_input, bipolar, opl</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">retina</span><span class="o">.</span><span class="n">s</span>
+<span class="go">Current state of the model</span>
+<span class="go">Choices: gang_0_spikes, gang_1_spikes, gang_0_input, gang_1_input, bipolar, opl</span>
+</pre></div>
+</div>
+<p>To find explore the parameters / modules / states,
+print the object to see the available choices or
+press tab:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.&lt;</span><span class="n">tab</span> <span class="n">complete</span><span class="o">&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">bi</span><span class="o">&lt;</span><span class="n">tab</span> <span class="n">complete</span><span class="o">&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">bipolar</span><span class="o">.&lt;</span><span class="n">tab</span> <span class="n">complete</span><span class="o">&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">bipolar</span><span class="o">.</span><span class="n">g_leak</span> <span class="c1"># the g_leak Parameter</span>
+</pre></div>
+</div>
+<p>The hierarchical <code class="xref py py-class docutils literal"><span class="pre">Ox</span></code> object provides 
+a few special functions</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">_all</span><span class="o">.</span><span class="n">bipolar_g_leak</span> <span class="c1"># lists everything in a flat list</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">_search</span><span class="o">.</span><span class="n">leak</span><span class="o">.&lt;</span><span class="n">tab</span> <span class="n">complete</span> <span class="n">to</span> <span class="n">search</span><span class="o">&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retina</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">_search</span><span class="o">.</span><span class="n">leak</span><span class="o">.</span><span class="n">bipolar_g_leak</span> <span class="c1"># found one result</span>
+</pre></div>
+</div>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>_use_cuda</strong></td>
+<td>(bool)</td>
+</tr>
+<tr class="row-even"><td><strong>.. py:attribute:: set_optimizer</strong></td>
+<td><code class="xref py py-class docutils literal"><span class="pre">magic</span> <span class="pre">object</span></code> that allows tab completion to select an optimizer. (see <a class="reference internal" href="#tab-completion-example"><span class="std std-ref">example</span></a>)  The list of parameters as first argument can be omitted and will be filled with all parameters of the model by default. Other parameters are passed through to the optimizer.</td>
+</tr>
+<tr class="row-odd"><td><strong>.. py:attribute:: user_parameteres</strong></td>
+<td>A hierarchical, tab-completable list of all <code class="xref py py-class docutils literal"><span class="pre">set()</span></code> function for the user.</td>
+</tr>
+<tr class="row-even"><td><strong>.. py:attribute:: m</strong></td>
+<td>A hierarchical, tab-completable list of all :class:<a href="#id1"><span class="problematic" id="id2">`</span></a>~torch.nn.Module`s/:class:<a href="#id3"><span class="problematic" id="id4">`</span></a>~convis.base.Layer`s of the model.</td>
+</tr>
+<tr class="row-odd"><td><strong>.. py:attribute:: s</strong></td>
+<td>A hierarchical, tab-completable list of all state variables of the model.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>cuda(device=None)</strong></td>
+<td>move the model to the gpu</td>
+</tr>
+<tr class="row-even"><td><strong>cpu()</strong></td>
+<td>move the model to the cpu</td>
+</tr>
+<tr class="row-odd"><td><strong>run(the_input, dt=None)</strong></td>
+<td>execute the model, using chunk sizes of <cite>dt</cite></td>
+</tr>
+<tr class="row-even"><td><strong>parse_config(conf)</strong></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><strong>optimize(inp,outp,dt=None)</strong></td>
+<td>use the selected optimizer to fit the model to return outp to the input inp. Accepts a chunk length <cite>dt</cite></td>
+</tr>
+<tr class="row-even"><td><strong>register_state(name, value)</strong></td>
+<td>registers an attribute name to be a state variable</td>
+</tr>
+<tr class="row-odd"><td><strong>get_state()</strong></td>
+<td>returns the current state of the model (recursively for all submodules)</td>
+</tr>
+<tr class="row-even"><td><strong>set_state(d)</strong></td>
+<td>set all state parameters defined in dictionary <cite>d</cite> to the corresponding values.</td>
+</tr>
+<tr class="row-odd"><td><strong>push_state()</strong></td>
+<td>pushes the current state on a stack</td>
+</tr>
+<tr class="row-even"><td><strong>pop_state()</strong></td>
+<td>pops the last state from the stack and sets all state variables to the corresponding values.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="convis.base.Layer.cuda">
+<code class="descname">cuda</code><span class="sig-paren">(</span><em>device=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.cuda"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.cuda" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves the model to the GPU (optionally with number <cite>device</cite>).
+returns the model itself.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.cpu">
+<code class="descname">cpu</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.cpu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.cpu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves the model to the CPU and returns the model itself.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>the_input</em>, <em>dt=None</em>, <em>t=0</em>, <em>detach=True</em>, <em>max_t=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs the model either once, or multiple times to process chunks of size <cite>dt</cite>.</p>
+<p><cite>the_input</cite> can be:</p>
+<blockquote>
+<div><ul class="simple">
+<li>a 3d <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal"><span class="pre">numpy.ndarray</span></code></a> or <a class="reference external" href="https://pytorch.org/docs/0.3.0/tensors.html#torch.Tensor" title="(in PyTorch vmaster (0.3.0.post4 ))"><code class="xref py py-class docutils literal"><span class="pre">torch.Tensor</span></code></a></li>
+<li>a <a class="reference internal" href="docs_streams.html#convis.streams.Stream" title="convis.streams.Stream"><code class="xref py py-class docutils literal"><span class="pre">convis.streams.Stream</span></code></a></li>
+<li><dl class="first docutils">
+<dt>a <a class="reference internal" href="#convis.base.Output" title="convis.base.Output"><code class="xref py py-class docutils literal"><span class="pre">Output</span></code></a> containing at least one <a class="reference external" href="https://pytorch.org/docs/0.3.0/tensors.html#torch.Tensor" title="(in PyTorch vmaster (0.3.0.post4 ))"><code class="xref py py-class docutils literal"><span class="pre">torch.Tensor</span></code></a></dt>
+<dd><ul class="first last">
+<li>the first one will be used</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p>Returns an <a class="reference internal" href="#convis.base.Output" title="convis.base.Output"><code class="xref py py-class docutils literal"><span class="pre">Output</span></code></a> object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="convis.base.Layer.p">
+<code class="descname">p</code><a class="headerlink" href="#convis.base.Layer.p" title="Permalink to this definition">¶</a></dt>
+<dd><p>A hierarchical, tab-completable list of all <a class="reference internal" href="#convis.variables.Parameter" title="convis.variables.Parameter"><code class="xref py py-class docutils literal"><span class="pre">convis.variables.Parameter</span></code></a> of the model.
+If a parameters is reachable via <cite>some_model.p.layer1.module1.parameter1</cite>
+it will also be available directly as <cite>some_model.layer1.module1.parameter1</cite>.
+However for tab-completion, the later method provides <em>all</em> attributes
+of the model, not only parameters.</p>
+<p>See also <a class="reference internal" href="usage.html#p-list"><span class="std std-ref">this section in the documentation</span></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="convis.base.Layer.m">
+<code class="descname">m</code><a class="headerlink" href="#convis.base.Layer.m" title="Permalink to this definition">¶</a></dt>
+<dd><p>A hierarchical, tab-completable list of all <a class="reference internal" href="#convis.base.Layer" title="convis.base.Layer"><code class="xref py py-class docutils literal"><span class="pre">convis.base.Layer</span></code></a> of the model.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="convis.base.Layer.s">
+<code class="descname">s</code><a class="headerlink" href="#convis.base.Layer.s" title="Permalink to this definition">¶</a></dt>
+<dd><p>A hierarchical, tab-completable list of all <code class="xref py py-class docutils literal"><span class="pre">convis.variables.State</span></code> of the model.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.parse_config">
+<code class="descname">parse_config</code><span class="sig-paren">(</span><em>config</em>, <em>prefix=''</em>, <em>key='retina_config_key'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.parse_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.parse_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads parameter values from a configuration (RetinaConfiguration or dict).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.compute_loss">
+<code class="descname">compute_loss</code><span class="sig-paren">(</span><em>inp</em>, <em>outp</em>, <em>loss_fn=&lt;function &lt;lambda&gt;&gt;</em>, <em>dt=None</em>, <em>t=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.compute_loss"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.compute_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the loss of the model output in response to <cite>inp</cite>
+compared with the provided <cite>outp</cite> using <cite>loss_fn</cite>.</p>
+<p>Works like <cite>optimize</cite>, but does not use an actual optimizer.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#convis.base.Layer.optimize" title="convis.base.Layer.optimize"><code class="xref py py-obj docutils literal"><span class="pre">optimize</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.optimize">
+<code class="descname">optimize</code><span class="sig-paren">(</span><em>inp</em>, <em>outp</em>, <em>optimizer=None</em>, <em>loss_fn=&lt;function &lt;lambda&gt;&gt;</em>, <em>dt=None</em>, <em>t=0</em>, <em>t_skip=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.optimize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.optimize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs an Optimizer to fit the models parameters such that the output
+of the model when presented <code class="xref py py-attr docutils literal"><span class="pre">inp</span></code> approximates <code class="xref py py-attr docutils literal"><span class="pre">outp</span></code>.</p>
+<p>To use this function, an <a class="reference external" href="https://pytorch.org/docs/0.3.0/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (0.3.0.post4 ))"><code class="xref py py-class docutils literal"><span class="pre">torch.optim.Optimizer</span></code></a> has to be selected:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">set_optimizer</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">set_optimizer</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span> <span class="c1"># uses optimizers from torch.optim</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It is important to specify a chunk length <code class="xref py py-attr docutils literal"><span class="pre">dt</span></code>, if the complete input does not fit into memory.</p>
+<p>With t_skip an initial portion of the input will be evaluated by the model,
+without calling the optimizer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.get_parameters">
+<code class="descname">get_parameters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.get_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.get_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns an OrderedDict of all parameter values of the model</p>
+<p>The key of each entry is the respective path name
+(eg. ‘submodule_submodule_variablename’), the value
+is a numpy array.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#convis.base.Layer.set_parameters" title="convis.base.Layer.set_parameters"><code class="xref py py-obj docutils literal"><span class="pre">set_parameters</span></code></a>, <a class="reference internal" href="#convis.base.Layer.push_parameters" title="convis.base.Layer.push_parameters"><code class="xref py py-obj docutils literal"><span class="pre">push_parameters</span></code></a>, <a class="reference internal" href="#convis.base.Layer.pop_parameters" title="convis.base.Layer.pop_parameters"><code class="xref py py-obj docutils literal"><span class="pre">pop_parameters</span></code></a>, <a class="reference internal" href="#convis.base.Layer.save_parameters" title="convis.base.Layer.save_parameters"><code class="xref py py-obj docutils literal"><span class="pre">save_parameters</span></code></a>, <a class="reference internal" href="#convis.base.Layer.load_parameters" title="convis.base.Layer.load_parameters"><code class="xref py py-obj docutils literal"><span class="pre">load_parameters</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.set_parameters">
+<code class="descname">set_parameters</code><span class="sig-paren">(</span><em>d</em>, <em>warn=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.set_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.set_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets parameter values from a dictionary.</p>
+<p>All parameters of the model will be loaded according
+to the respective path names (eg. ‘submodule_submodule_variablename’).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is important that you load the parameters to a
+model with the same structure and parameters of
+exactly the same name!
+Missing parameters (either in the file or the model) will be 
+ignored silently.
+To enable warnings, set <cite>Layer._debug</cite> or the argument <cite>warn</cite> to <cite>True</cite>.
+If you changed the model structure, you can load the
+parameters with <cite>np.load</cite>, convert it into a dictionary
+and add or rename the parameters there.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>d (dict)</strong></p>
+<blockquote>
+<div><p>dictionary with parameter values</p>
+</div></blockquote>
+<p><strong>warn (bool)</strong></p>
+<blockquote class="last">
+<div><p>whether to warn of mismatching parameter names</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#convis.base.Layer.get_parameters" title="convis.base.Layer.get_parameters"><code class="xref py py-obj docutils literal"><span class="pre">get_parameters</span></code></a>, <a class="reference internal" href="#convis.base.Layer.push_parameters" title="convis.base.Layer.push_parameters"><code class="xref py py-obj docutils literal"><span class="pre">push_parameters</span></code></a>, <a class="reference internal" href="#convis.base.Layer.pop_parameters" title="convis.base.Layer.pop_parameters"><code class="xref py py-obj docutils literal"><span class="pre">pop_parameters</span></code></a>, <a class="reference internal" href="#convis.base.Layer.save_parameters" title="convis.base.Layer.save_parameters"><code class="xref py py-obj docutils literal"><span class="pre">save_parameters</span></code></a>, <a class="reference internal" href="#convis.base.Layer.load_parameters" title="convis.base.Layer.load_parameters"><code class="xref py py-obj docutils literal"><span class="pre">load_parameters</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.get_state">
+<code class="descname">get_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.get_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.get_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>collects the state and returns an
+OrderedDict</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.set_state">
+<code class="descname">set_state</code><span class="sig-paren">(</span><em>state_dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.set_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.set_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>collects the state and returns an
+OrderedDict</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.requires_grad_">
+<code class="descname">requires_grad_</code><span class="sig-paren">(</span><em>requires_grad</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.requires_grad_"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.requires_grad_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes the <cite>requires_grad</cite> attribute of all contained parameters.</p>
+<p>Setting this top <cite>False</cite> will disable the computational graph, 
+making it impossible to use gradient descent on computations
+until you enable it again.</p>
+<p>See also <a class="reference internal" href="usage.html#disable-graph"><span class="std std-ref">the documentation</span></a> on how to 
+enable/disable graphs globally, for a <a class="reference internal" href="#convis.base.Layer" title="convis.base.Layer"><code class="xref py py-class docutils literal"><span class="pre">Layer</span></code></a> or for a <a class="reference internal" href="#convis.variables.Parameter" title="convis.variables.Parameter"><code class="xref py py-class docutils literal"><span class="pre">Parameter</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.clear_state">
+<code class="descname">clear_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.clear_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.clear_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>resets the state to default values</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.save_parameters">
+<code class="descname">save_parameters</code><span class="sig-paren">(</span><em>filename</em>, <em>filetype='npz'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.save_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.save_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>saves the model parameters to a file</p>
+<p>This function currently only supports the npz format.
+All parameters of the model will be saved as
+variables of the respective path names (eg. ‘submodule_submodule_variablename’).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>filename (str)</strong></p>
+<blockquote class="last">
+<div><p>name of the file to save to</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#convis.base.Layer.load_parameters" title="convis.base.Layer.load_parameters"><code class="xref py py-obj docutils literal"><span class="pre">load_parameters</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.load_parameters">
+<code class="descname">load_parameters</code><span class="sig-paren">(</span><em>filename</em>, <em>filetype='npz'</em>, <em>warn=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.load_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.load_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>loads saved parameter values from a file.</p>
+<p>This function currently only supports the npz format.
+All parameters of the model will be loaded from npz
+variables of the respective path names (eg. ‘submodule_submodule_variablename’).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is important that you load the parameters to a
+model with the same structure and parameters of
+exactly the same name!
+Missing parameters (either in the file or the model) will be 
+ignored silently. To enable warnings, set <cite>Layer._debug</cite> or
+the argument <cite>warn</cite> to <cite>True</cite>.
+If you changed the model structure, you can load the
+parameters with <cite>np.load</cite>, convert it into a dictionary
+and add or rename the parameters there.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>filename (str)</strong></p>
+<blockquote>
+<div><p>name of the file to load from</p>
+</div></blockquote>
+<p><strong>warn (bool)</strong></p>
+<blockquote class="last">
+<div><p>whether to warn of mismatching parameter names</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#convis.base.Layer.save_parameters" title="convis.base.Layer.save_parameters"><code class="xref py py-obj docutils literal"><span class="pre">save_parameters</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.push_parameters">
+<code class="descname">push_parameters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.push_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.push_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>collects all parameter values and pushes their values onto a stack</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.pop_parameters">
+<code class="descname">pop_parameters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.pop_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.pop_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>retrieves the values of all parameters from a stack</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.push_state">
+<code class="descname">push_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.push_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.push_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>collects all State variables and pushes their values onto a stack</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.pop_state">
+<code class="descname">pop_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.pop_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.pop_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>retrieves the values of all State variables from a stack</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.push_optimizer">
+<code class="descname">push_optimizer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.push_optimizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.push_optimizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>pushes the current optimizer onto a stack</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.pop_optimizer">
+<code class="descname">pop_optimizer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.pop_optimizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.pop_optimizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>retrieves the last optimizer from a stack</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.get_all">
+<code class="descname">get_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.get_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.get_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the parameters, states and parameters in
+a dictionary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.store_all">
+<code class="descname">store_all</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.store_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.store_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stores parameters, states and parameter values
+in an internal dictionary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.retrieve_all">
+<code class="descname">retrieve_all</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.retrieve_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.retrieve_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves parameters, states and parameter values
+from an internal dictionary.</p>
+<p>The entry is not deleted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.push_all">
+<code class="descname">push_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.push_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.push_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pushes the parameters, states and parameters onto
+a shared stack.</p>
+<p>This stack does not interfere with the separate stacks
+of <cite>push_parameters</cite>, <cite>push_optimizer</cite> and <cite>push_state</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.pop_all">
+<code class="descname">pop_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.pop_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.pop_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the parameters, states and parameters from
+a shared stack.</p>
+<p>This stack does not interfere with the separate stacks
+of <cite>pop_parameters</cite>, <cite>pop_optimizer</cite> and <cite>pop_state</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.plot_impulse">
+<code class="descname">plot_impulse</code><span class="sig-paren">(</span><em>shp=(500</em>, <em>10</em>, <em>10)</em>, <em>dt=500</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.plot_impulse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.plot_impulse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the response to a 1 bin impulse.</p>
+<p>The state of the model is preserved (pushed 
+to the stack and poped later).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The output of the model</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="6%" />
+<col width="94%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>shp</strong></td>
+<td>(tuple(t, x, y)) the size of the stimulus. A larger stimulus will show a larger area of the impulse response</td>
+</tr>
+<tr class="row-even"><td><strong>dt</strong></td>
+<td>(int) length of chunks when computing the response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Layer.plot_impulse_space">
+<code class="descname">plot_impulse_space</code><span class="sig-paren">(</span><em>shp=(1</em>, <em>20</em>, <em>20)</em>, <em>dt=500</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Layer.plot_impulse_space"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Layer.plot_impulse_space" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the response to a 1 bin impulse.</p>
+<p>The state of the model is preserved (pushed 
+to the stack and poped later).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The output of the model</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="6%" />
+<col width="94%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>shp</strong></td>
+<td>(tuple(t, x, y)) the size of the stimulus. A larger stimulus will show a larger area of the impulse response</td>
+</tr>
+<tr class="row-even"><td><strong>dt</strong></td>
+<td>(int) length of chunks when computing the response</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="convis.base.Model">
+<code class="descclassname">convis.base.</code><code class="descname">Model</code><a class="headerlink" href="#convis.base.Model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#convis.base.Layer" title="convis.base.Layer"><code class="xref py py-class docutils literal"><span class="pre">Layer</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="convis.base.Runner">
+<em class="property">class </em><code class="descclassname">convis.base.</code><code class="descname">Runner</code><span class="sig-paren">(</span><em>model=None</em>, <em>input=None</em>, <em>output=None</em>, <em>goal=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Runner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Runner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keeps track of the input and output of a model
+and can run or optimize it in a separate thread.</p>
+<p><code class="xref py py-attr docutils literal"><span class="pre">model</span></code> has to be a <a class="reference internal" href="#convis.base.Layer" title="convis.base.Layer"><code class="xref py py-class docutils literal"><span class="pre">convis.base.Layer</span></code></a></p>
+<p><code class="xref py py-attr docutils literal"><span class="pre">input</span></code> should be a <a class="reference internal" href="docs_streams.html#convis.streams.Stream" title="convis.streams.Stream"><code class="xref py py-class docutils literal"><span class="pre">convis.streams.Stream</span></code></a> that contains input data
+<code class="xref py py-attr docutils literal"><span class="pre">output</span></code> should be a <a class="reference internal" href="docs_streams.html#convis.streams.Stream" title="convis.streams.Stream"><code class="xref py py-class docutils literal"><span class="pre">convis.streams.Stream</span></code></a> that accepts new data
+when using optimize, <code class="xref py py-attr docutils literal"><span class="pre">goal</span></code> has to have the same length as input and the same behaviour at the end of the stream (repeating or stop)</p>
+<dl class="method">
+<dt id="convis.base.Runner.stop">
+<code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Runner.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Runner.stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Runner.start">
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Runner.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Runner.start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Runner.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>length=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Runner.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Runner.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="convis.base.Runner.optimize">
+<code class="descname">optimize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/base.html#Runner.optimize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.base.Runner.optimize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="variables-convis-variables">
+<h2><a class="toc-backref" href="#id7">Variables <cite>convis.variables</cite></a><a class="headerlink" href="#variables-convis-variables" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-convis.variables"></span><dl class="attribute">
+<dt id="convis.variables.Variable">
+<code class="descclassname">convis.variables.</code><code class="descname">Variable</code><a class="headerlink" href="#convis.variables.Variable" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">_NewVariable</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="convis.variables.Parameter">
+<em class="property">class </em><code class="descclassname">convis.variables.</code><code class="descname">Parameter</code><span class="sig-paren">(</span><em>x</em>, <em>default=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/variables.html#Parameter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.variables.Parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>A parameter of a model</p>
+<p>Similar to a Variable, but by default has <cite>requires_grad</cite> set to <cite>True</cite>.</p>
+<p>To disable the computational graph see  <a class="reference internal" href="usage.html#disable-graph"><span class="std std-ref">this section in the documentation</span></a></p>
+<dl class="method">
+<dt id="convis.variables.Parameter.requires_grad_">
+<code class="descname">requires_grad_</code><span class="sig-paren">(</span><em>requires_grad=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/variables.html#Parameter.requires_grad_"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.variables.Parameter.requires_grad_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes the <cite>requires_grad</cite> attribute for this parameter <em>in place</em>.</p>
+<p>Setting this top <cite>False</cite> will disable the computational graph, 
+making it impossible to use gradient descent on computations
+tracking back to this parameter until you enable it again.</p>
+<p>See also <a class="reference internal" href="usage.html#disable-graph"><span class="std std-ref">the documentation</span></a> on how to 
+enable/disable graphs globally, for a <a class="reference internal" href="#convis.base.Layer" title="convis.base.Layer"><code class="xref py py-class docutils literal"><span class="pre">Layer</span></code></a> or for a <a class="reference internal" href="#convis.variables.Parameter" title="convis.variables.Parameter"><code class="xref py py-class docutils literal"><span class="pre">Parameter</span></code></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="convis.variables.create_Ox_from_torch_iterator_dicts">
+<code class="descclassname">convis.variables.</code><code class="descname">create_Ox_from_torch_iterator_dicts</code><span class="sig-paren">(</span><em>iterator</em>, <em>doc=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/variables.html#create_Ox_from_torch_iterator_dicts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.variables.create_Ox_from_torch_iterator_dicts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a dictionary (or iterator with key,value pairs)
+with dots in the keys and returns a hierarchical object.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">variables</span><span class="o">.</span><span class="n">create_Ox_from_torch_iterator_dicts</span><span class="p">(</span><span class="n">retina</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">())</span>
+<span class="go">    # the same as:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Ox</span><span class="p">(</span><span class="o">**</span><span class="n">dict_with_dots_to_hierarchical_dict</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">retina</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">())))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.&lt;</span><span class="n">tab</span> <span class="n">complete</span><span class="o">&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">bipolar</span><span class="o">.&lt;</span><span class="n">tab</span> <span class="n">complete</span><span class="o">&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">bipolar</span><span class="o">.</span><span class="n">g_leak</span>
+</pre></div>
+</div>
+<p><code class="xref py py-class docutils literal"><span class="pre">convis.o.Ox</span></code> objects have a few special attributes (with leading underscores)
+that help finding nodes in large hierarchies</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">_all</span> <span class="c1"># lists everything with underscore </span>
+<span class="go">           # separating hierarchies (ie. similar</span>
+<span class="go">           # to `.named_parameters()`, but each works</span>
+<span class="go">           # as an attribute instead of a string</span>
+<span class="go">           # key)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">_search</span><span class="o">.</span><span class="n">g_leak</span><span class="o">.&lt;</span><span class="n">tab</span> <span class="n">complete</span><span class="o">&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">_search</span><span class="o">.</span><span class="n">g_leak</span><span class="o">.</span><span class="n">bipolar_g_leak</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><code class="xref py py-obj docutils literal"><span class="pre">convis.o.Ox</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="convis.variables.create_hierarchical_dict">
+<code class="descclassname">convis.variables.</code><code class="descname">create_hierarchical_dict</code><span class="sig-paren">(</span><em>vs</em>, <em>pi=0</em>, <em>name_sanitizer=&lt;function save_name&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/variables.html#create_hierarchical_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.variables.create_hierarchical_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>pi: “path i” offset in the path</p>
+<blockquote>
+<div>The path will only be used from element pi onwards</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="convis.variables.create_hierarchical_dict_with_nodes">
+<code class="descclassname">convis.variables.</code><code class="descname">create_hierarchical_dict_with_nodes</code><span class="sig-paren">(</span><em>vs</em>, <em>pi=0</em>, <em>name_sanitizer=&lt;function save_name&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/variables.html#create_hierarchical_dict_with_nodes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.variables.create_hierarchical_dict_with_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>name_sanitizer: eg. convis.base.save_name or str</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="convis.variables.create_context_O">
+<code class="descclassname">convis.variables.</code><code class="descname">create_context_O</code><span class="sig-paren">(</span><em>var=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/variables.html#create_context_O"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.variables.create_context_O" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function creates the ‘typical’ context that annotated variables can expect when defining <cite>init</cite> functions.</p>
+<blockquote>
+<div><ul class="simple">
+<li><cite>var</cite>: the variable itself</li>
+<li><cite>node</cite>: the node that wraps this part of the graph (providing eg. configuration options)</li>
+<li><cite>get_config</cite>: a function of <cite>node</cite> that provides the configuration dictionary local to this node</li>
+<li><cite>model</cite>: the model providing global options such as <cite>pixel_to_degree()</cite> and <cite>seconds_to_step()</cite></li>
+</ul>
+</div></blockquote>
+<p>During execution:</p>
+<blockquote>
+<div><ul class="simple">
+<li><cite>input</cite>: the variable that is fed as input to the model (not the node!)</li>
+</ul>
+</div></blockquote>
+<p>Further, if the variable has a <cite>config_key</cite> and a <cite>config_default</cite> field,
+two short cut functions retrieve and save the configuration value to minimize code redundancy:</p>
+<blockquote>
+<div><ul class="simple">
+<li><cite>value_from_config()</cite>: retrieves the configuration value from <cite>node</cite>, falling back to <cite>config_default</cite> if no option is provided</li>
+<li><cite>value_to_config(v)</cite>: calls the <cite>set_config</cite> method of the <cite>node</cite> to save a configuration value (eg. when updated when optimizing)</li>
+</ul>
+</div></blockquote>
+<p>To use these values in an <cite>init</cite> function eg:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">as_parameter</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">iscalar</span><span class="p">(</span><span class="s2">&quot;k&quot;</span><span class="p">),</span><span class="n">init</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="convis.variables.VirtualParameter">
+<em class="property">class </em><code class="descclassname">convis.variables.</code><code class="descname">VirtualParameter</code><span class="sig-paren">(</span><em>func=None</em>, <em>var=None</em>, <em>call=None</em>, <em>value=None</em>, <em>dependencies=[]</em>, <em>kwargs_dependencies={}</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/variables.html#VirtualParameter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.variables.VirtualParameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>VirtualParameters can generate parameter values
+from a dependency structure of other parameters.</p>
+<p>Example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">VirtualParameter</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span><span class="n">value</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">VirtualParameter</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">VirtualParameter</span><span class="p">(</span><span class="n">convis2</span><span class="o">.</span><span class="n">numerical_filters</span><span class="o">.</span><span class="n">exponential_filter_5d</span><span class="p">)</span><span class="o">.</span><span class="n">set_callback_arguments</span><span class="p">(</span><span class="n">tau</span><span class="o">=</span><span class="n">a</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="n">b</span><span class="p">)</span>
+<span class="n">a</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span> <span class="c1"># updating this parameter causes the function of v to be reevaluated </span>
+<span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">get</span><span class="p">()[</span><span class="mi">0</span><span class="p">,:,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">b</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># the function is reevaluated again</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">get</span><span class="p">()[</span><span class="mi">0</span><span class="p">,:,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-convis.utils">
+<span id="utilitary-methods-convis-utils"></span><h2><a class="toc-backref" href="#id8">Utilitary methods <cite>convis.utils</cite></a><a class="headerlink" href="#module-convis.utils" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="convis.utils.make_tensor_5d">
+<code class="descclassname">convis.utils.</code><code class="descname">make_tensor_5d</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/utils.html#make_tensor_5d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.utils.make_tensor_5d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extends a tensor or numpy array to have exactly 5 dimensions.</p>
+<p>In doing so, it interprets 1d tensors as being aligned
+in time, 2d tensors to be aligned in space, etc.</p>
+<blockquote>
+<div><ul class="simple">
+<li>1d: t[None,None,:,None,None]</li>
+<li>2d: t[None,None,None,:,:]</li>
+<li>3d: t[None,None,:,:,:]</li>
+<li>4d: t[None,:,:,:,:]</li>
+<li>5d: t</li>
+<li>6d and more: selects the first element of t until t has 5 dimensions</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="convis.utils.extend_to_match">
+<code class="descclassname">convis.utils.</code><code class="descname">extend_to_match</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>align=None</em>, <em>mode='linear_ramp'</em>, <em>end_values=0.0</em>, <em>dims=5</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/utils.html#extend_to_match"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.utils.extend_to_match" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extends tensor <code class="xref py py-attr docutils literal"><span class="pre">a</span></code> to have a shape <em>at least</em> as big as <cite>b</cite>.</p>
+<p>If <cite>dims</cite> is equal to 5, <a class="reference internal" href="#convis.utils.make_tensor_5d" title="convis.utils.make_tensor_5d"><code class="xref py py-func docutils literal"><span class="pre">make_tensor_5d()</span></code></a> is used
+to add dimensions until both tensors have 5 dimensions.</p>
+<p>By default, the first three dimensions will
+be padded by aligning the smaller tensor at
+the beginning of the larger tensor and the last
+two (spatial) dimensions are aligned centered
+in the larger tensor.</p>
+<p>If <cite>dim</cite> is <em>not</em> equal to 5, all dimensions
+are centered.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a (numpy array or tensor):</strong></p>
+<blockquote class="last">
+<div><blockquote>
+<div><p>the tensor being extended</p>
+</div></blockquote>
+<dl class="docutils">
+<dt>b (numpy array or tensor):</dt>
+<dd><p class="first last">the tensor with (potentially) larger dimensions</p>
+</dd>
+<dt>align (list or string):</dt>
+<dd><p class="first last">if a list: determines the alignment for each dimension
+if a sting: gives the alignment mode for all dimensions
+possible values:  strings starting with : <cite>‘c’</cite>, <cite>‘b’</cite> and <cite>‘e’</cite>
+standing for: <cite>‘center’</cite>, <cite>‘begin’</cite>, <cite>‘end’</cite></p>
+</dd>
+<dt>mode (<cite>str</cite>):</dt>
+<dd><p class="first last">see <cite>mode</cite> argument of <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.pad.html#numpy.pad" title="(in NumPy v1.15)"><code class="xref py py-func docutils literal"><span class="pre">numpy.pad()</span></code></a>
+default: <cite>‘linear_ramp’</cite>,</p>
+</dd>
+<dt>end_values (<cite>float</cite>):</dt>
+<dd><p class="first last">see <cite>end_values</cite> argument of <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.pad.html#numpy.pad" title="(in NumPy v1.15)"><code class="xref py py-func docutils literal"><span class="pre">numpy.pad()</span></code></a>
+default: <cite>0.0</cite></p>
+</dd>
+<dt>dims (<cite>int</cite>, specifically 5 or anything else):</dt>
+<dd><p class="first last">if 5, tensors will be extended so that they have exactly 5 dimensions using <a class="reference internal" href="#convis.utils.make_tensor_5d" title="convis.utils.make_tensor_5d"><code class="xref py py-func docutils literal"><span class="pre">make_tensor_5d()</span></code></a></p>
+</dd>
+</dl>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>To make sure both have the same shape:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">extend_to_match</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">extend_to_match</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="convis.utils.subtract_tensors">
+<code class="descclassname">convis.utils.</code><code class="descname">subtract_tensors</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>align=None</em>, <em>dims=5</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/utils.html#subtract_tensors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.utils.subtract_tensors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes it easy to subtract two 5d tensors from each other, even if they have different shapes!</p>
+<p>If <cite>dims</cite> is equal to 5, <a class="reference internal" href="#convis.utils.make_tensor_5d" title="convis.utils.make_tensor_5d"><code class="xref py py-func docutils literal"><span class="pre">make_tensor_5d()</span></code></a> is used
+to add dimensions until both tensors have 5 dimensions.</p>
+<p>By default, the first three dimensions will
+be padded by aligning the smaller tensor at
+the beginning of the larger tensor and the last
+two (spatial) dimensions are aligned centered
+in the larger tensor.</p>
+<p>If <cite>dim</cite> is <em>not</em> equal to 5, all dimensions
+are centered.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a (numpy array or tensor):</strong></p>
+<blockquote class="last">
+<div><blockquote>
+<div><p>the first of the two tensors</p>
+</div></blockquote>
+<dl class="docutils">
+<dt>b (numpy array or tensor):</dt>
+<dd><p class="first last">the second of the two tensors</p>
+</dd>
+<dt>align (list or string):</dt>
+<dd><p class="first">if a list: determines the alignment for each dimension
+if a sting: gives the alignment mode for all dimensions
+possible values:</p>
+<blockquote class="last">
+<div><p>strings starting with : ‘c’,’b’ and ‘e’
+standing for: ‘center’, ‘begin’, ‘end’</p>
+</div></blockquote>
+</dd>
+<dt>dims (int, specifically 5 or anything else):</dt>
+<dd><p class="first last">if 5, tensors will be extended so that they have exactly 5 dimensions using <a class="reference internal" href="#convis.utils.make_tensor_5d" title="convis.utils.make_tensor_5d"><code class="xref py py-func docutils literal"><span class="pre">make_tensor_5d()</span></code></a></p>
+</dd>
+</dl>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="convis.utils.plot_5d_matshow">
+<code class="descclassname">convis.utils.</code><code class="descname">plot_5d_matshow</code><span class="sig-paren">(</span><em>w, border=True, dims=[(0, 1, 3), (2, 4)], border_val=0.0, **kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/utils.html#plot_5d_matshow"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.utils.plot_5d_matshow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots a 5d Tensor as a concatenation of spatial maps.</p>
+<p>The 5 dimensions have to be separated into two sets which
+will correspond to the two dimensions of the image.</p>
+<blockquote>
+<div>plot_5d_matshow(w, dims=[(0,3),(2,1,4)])</div></blockquote>
+<p>Other arguments and keyword arguments are passed
+to <cite>matplotlib.pylab.plot()</cite></p>
+<p><cite>border_val</cite> can be a float value or ‘max’, ‘min’ or ‘mean’,
+in which case the corresponding value will be taken from w.</p>
+<p class="rubric">Examples</p>
+<p>By default this will generate a very long plot where you can see almost nothing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">convis</span>
+<span class="n">inp</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">moving_grating</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">convis</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_5d_matshow</span><span class="p">(</span><span class="n">inp</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//docs-1.py">Source code</a>, <a class="reference external" href=".//docs-1.png">png</a>, <a class="reference external" href=".//docs-1.hires.png">hires.png</a>, <a class="reference external" href=".//docs-1.pdf">pdf</a>)</p>
+<div class="figure">
+<img alt="_images/docs-1.png" src="_images/docs-1.png" />
+</div>
+<p>By limiting the number of frames, the plot shows the frames next to each other:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">convis</span>
+<span class="n">inp</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">moving_grating</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">convis</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_5d_matshow</span><span class="p">(</span><span class="n">inp</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">,::</span><span class="mi">200</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//docs-2.py">Source code</a>, <a class="reference external" href=".//docs-2.png">png</a>, <a class="reference external" href=".//docs-2.hires.png">hires.png</a>, <a class="reference external" href=".//docs-2.pdf">pdf</a>)</p>
+<div class="figure">
+<img alt="_images/docs-2.png" src="_images/docs-2.png" />
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="convis.utils.plot_5d_time">
+<code class="descclassname">convis.utils.</code><code class="descname">plot_5d_time</code><span class="sig-paren">(</span><em>w</em>, <em>lsty='-'</em>, <em>mean=()</em>, <em>time=(2</em>, <em>)</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/utils.html#plot_5d_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.utils.plot_5d_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots a line plot from a 5d tensor.</p>
+<p>Dimensions in argument <cite>mean</cite> will be combined.
+If <cite>mean</cite> is <cite>True</cite>, all 4 non-time dimensions will be 
+averaged.</p>
+<p>Other arguments and keyword arguments are passed
+to <cite>matplotlib.pylab.plot()</cite></p>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">convis</span>
+<span class="n">inp</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">moving_grating</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">convis</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_5d_time</span><span class="p">(</span><span class="n">inp</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//docs-3.py">Source code</a>, <a class="reference external" href=".//docs-3.png">png</a>, <a class="reference external" href=".//docs-3.hires.png">hires.png</a>, <a class="reference external" href=".//docs-3.pdf">pdf</a>)</p>
+<div class="figure">
+<img alt="_images/docs-3.png" src="_images/docs-3.png" />
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="convis.utils.plot">
+<code class="descclassname">convis.utils.</code><code class="descname">plot</code><span class="sig-paren">(</span><em>x</em>, <em>mode=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/utils.html#plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.utils.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots a tensor/numpy array</p>
+<blockquote>
+<div>If the array has no spatial extend, it will
+draw only a single line plot. If the array
+has no temporal extend (and no color channels etc.),
+it will plot a single frame.
+Otherwise it will use <cite>plot_tensor</cite>.</div></blockquote>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#convis.utils.plot_tensor" title="convis.utils.plot_tensor"><code class="xref py py-obj docutils literal"><span class="pre">plot_tensor</span></code></a>, <a class="reference internal" href="#convis.utils.plot_5d_matshow" title="convis.utils.plot_5d_matshow"><code class="xref py py-obj docutils literal"><span class="pre">plot_5d_matshow</span></code></a>, <a class="reference internal" href="#convis.utils.plot_5d_time" title="convis.utils.plot_5d_time"><code class="xref py py-obj docutils literal"><span class="pre">plot_5d_time</span></code></a></p>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">convis</span>
+<span class="n">inp</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">moving_grating</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">convis</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">inp</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//docs-4.py">Source code</a>, <a class="reference external" href=".//docs-4.png">png</a>, <a class="reference external" href=".//docs-4.hires.png">hires.png</a>, <a class="reference external" href=".//docs-4.pdf">pdf</a>)</p>
+<div class="figure">
+<img alt="_images/docs-4.png" src="_images/docs-4.png" />
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="convis.utils.plot_tensor">
+<code class="descclassname">convis.utils.</code><code class="descname">plot_tensor</code><span class="sig-paren">(</span><em>t</em>, <em>n_examples=5</em>, <em>max_lines=16</em>, <em>tlim=None</em>, <em>xlim=None</em>, <em>ylim=None</em>, <em>resize_small_figures=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/utils.html#plot_tensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.utils.plot_tensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots a 5d tensor as a line plot (min,max,mean and example timeseries) and a sequence of image plots.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">convis</span>
+<span class="n">inp</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">moving_grating</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">convis</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_tensor</span><span class="p">(</span><span class="n">inp</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//docs-5.py">Source code</a>, <a class="reference external" href=".//docs-5.png">png</a>, <a class="reference external" href=".//docs-5.hires.png">hires.png</a>, <a class="reference external" href=".//docs-5.pdf">pdf</a>)</p>
+<div class="figure">
+<img alt="_images/docs-5.png" src="_images/docs-5.png" />
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>t (numpy array or PyTorch tensor):</strong></p>
+<blockquote>
+<div><p>The tensor that should be visualized</p>
+</div></blockquote>
+<p><strong>n_examples (int):</strong></p>
+<blockquote>
+<div><p>how many frames (distributed equally over the
+length of the tensor) should be</p>
+</div></blockquote>
+<p><strong>max_lines (int):</strong></p>
+<blockquote>
+<div><p>the maximum number of line plots of exemplary
+timeseries that should be added to the temporal 
+plot. The lines will be distributed roughly equally.
+If the tensor is not square in time (x!=y) or either 
+dimension is too small, it is possible that there 
+will be less than <cite>max_lines</cite> lines.</p>
+</div></blockquote>
+<p><strong>tlim (tuple or int):</strong></p>
+<blockquote>
+<div><p>time range included in the plot</p>
+</div></blockquote>
+<p><strong>xlim (tuple or int):</strong></p>
+<blockquote>
+<div><p>x range included in the example frames</p>
+</div></blockquote>
+<p><strong>ylim (tuple or int):</strong></p>
+<blockquote>
+<div><p>y range included in the example frames</p>
+</div></blockquote>
+<p><strong>resize_small_figures (bool):</strong></p>
+<blockquote class="last">
+<div><p>if True, figures that do not fit the example plots will be resized</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">convis</span>
+<span class="n">inp</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">moving_grating</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">convis</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_tensor</span><span class="p">(</span><span class="n">inp</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">],</span><span class="n">n_examples</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">max_lines</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//docs-6.py">Source code</a>, <a class="reference external" href=".//docs-6.png">png</a>, <a class="reference external" href=".//docs-6.hires.png">hires.png</a>, <a class="reference external" href=".//docs-6.pdf">pdf</a>)</p>
+<div class="figure">
+<img alt="_images/docs-6.png" src="_images/docs-6.png" />
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">convis</span>
+<span class="n">inp</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">moving_grating</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">convis</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_tensor</span><span class="p">(</span><span class="n">inp</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">],</span><span class="n">n_examples</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">max_lines</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//docs-7.py">Source code</a>, <a class="reference external" href=".//docs-7.png">png</a>, <a class="reference external" href=".//docs-7.hires.png">hires.png</a>, <a class="reference external" href=".//docs-7.pdf">pdf</a>)</p>
+<div class="figure">
+<img alt="_images/docs-7.png" src="_images/docs-7.png" />
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="convis.utils.plot_tensor_with_channels">
+<code class="descclassname">convis.utils.</code><code class="descname">plot_tensor_with_channels</code><span class="sig-paren">(</span><em>t</em>, <em>n_examples=7</em>, <em>max_lines=9</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/utils.html#plot_tensor_with_channels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.utils.plot_tensor_with_channels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots a 5d tensor as a line plot (min,max,mean and example timeseries) and a sequence of image plots and respects channels and batches.</p>
+<p>(might replace plot_tensor if it is more reliable and looks nicer)</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">convis</span>
+<span class="n">inp</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">moving_grating</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">inp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="o">*</span><span class="n">inp</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">],</span><span class="mf">2.0</span><span class="o">*</span><span class="n">inp</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">],</span><span class="n">inp</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">]],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">convis</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_tensor_with_channels</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//docs-8.py">Source code</a>, <a class="reference external" href=".//docs-8.png">png</a>, <a class="reference external" href=".//docs-8.hires.png">hires.png</a>, <a class="reference external" href=".//docs-8.pdf">pdf</a>)</p>
+<div class="figure">
+<img alt="_images/docs-8.png" src="_images/docs-8.png" />
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>t (numpy array or PyTorch tensor):</strong></p>
+<blockquote>
+<div><p>The tensor that should be visualized</p>
+</div></blockquote>
+<p><strong>n_examples (int):</strong></p>
+<blockquote>
+<div><p>how many frames (distributed equally over the
+length of the tensor) should be</p>
+</div></blockquote>
+<p><strong>max_lines (int):</strong></p>
+<blockquote class="last">
+<div><p>the maximum number of line plots of exemplary
+timeseries that should be added to the temporal 
+plot. The lines will be distributed roughly equally.
+If the tensor is not square in time (x!=y) or either 
+dimension is too small, it is possible that there 
+will be less than <cite>max_lines</cite> lines.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">convis</span>
+<span class="n">inp</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">moving_grating</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">inp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="o">*</span><span class="n">inp</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">],</span><span class="mf">2.0</span><span class="o">*</span><span class="n">inp</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">],</span><span class="n">inp</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">]],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">convis</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_tensor_with_channels</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span><span class="n">n_examples</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">max_lines</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//docs-9.py">Source code</a>, <a class="reference external" href=".//docs-9.png">png</a>, <a class="reference external" href=".//docs-9.hires.png">hires.png</a>, <a class="reference external" href=".//docs-9.pdf">pdf</a>)</p>
+<div class="figure">
+<img alt="_images/docs-9.png" src="_images/docs-9.png" />
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">convis</span>
+<span class="n">inp</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">moving_grating</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">inp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="o">*</span><span class="n">inp</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">],</span><span class="mf">2.0</span><span class="o">*</span><span class="n">inp</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">],</span><span class="n">inp</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">]],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">convis</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_tensor_with_channels</span><span class="p">(</span><span class="n">inp</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span><span class="bp">None</span><span class="p">],</span><span class="n">n_examples</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">max_lines</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//docs-10.py">Source code</a>, <a class="reference external" href=".//docs-10.png">png</a>, <a class="reference external" href=".//docs-10.hires.png">hires.png</a>, <a class="reference external" href=".//docs-10.pdf">pdf</a>)</p>
+<div class="figure">
+<img alt="_images/docs-10.png" src="_images/docs-10.png" />
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="sample-data-convis-samples">
+<h2><a class="toc-backref" href="#id9">Sample Data <cite>convis.samples</cite></a><a class="headerlink" href="#sample-data-convis-samples" title="Permalink to this headline">¶</a></h2>
+<p>See also <a class="reference external" href="https://github.com/jahuth/convis/blob/master/examples/Convis%20stimuli%20and%20kernels.ipynb">this notebook</a> for sample stimuli.</p>
+<span class="target" id="module-convis.samples"></span><p>This module provides sample kernels and inputs.</p>
+<dl class="function">
+<dt id="convis.samples.moving_grating">
+<code class="descclassname">convis.samples.</code><code class="descname">moving_grating</code><span class="sig-paren">(</span><em>t=2000</em>, <em>x=20</em>, <em>y=20</em>, <em>vt=0.005</em>, <em>vx=3.0</em>, <em>vy=2.0</em>, <em>p=0.01</em>, <em>frames_per_second=None</em>, <em>pixel_per_degree=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/samples.html#moving_grating"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.samples.moving_grating" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a moving grating stimulus.
+The actual speed and direction of the gratings is
+a combination of temporal, x and y speed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>t: int</strong></p>
+<blockquote>
+<div><p>temporal length of the stimulus</p>
+</div></blockquote>
+<p><strong>x: int</strong></p>
+<blockquote>
+<div><p>width of the stimulus</p>
+</div></blockquote>
+<p><strong>y: int</strong></p>
+<blockquote>
+<div><p>height of the stimulus</p>
+</div></blockquote>
+<p><strong>vt: float</strong></p>
+<blockquote>
+<div><p>speed of gratings</p>
+</div></blockquote>
+<p><strong>vx: float</strong></p>
+<blockquote>
+<div><p>x speed of gratings</p>
+</div></blockquote>
+<p><strong>vy: float</strong></p>
+<blockquote class="last">
+<div><p>y speed of gratings</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="convis.samples.moving_bar">
+<code class="descclassname">convis.samples.</code><code class="descname">moving_bar</code><span class="sig-paren">(</span><em>t=2000</em>, <em>x=20</em>, <em>y=20</em>, <em>bar_pos=-1.0</em>, <em>bar_direction=0.0</em>, <em>bar_width=1.0</em>, <em>bar_v=0.01</em>, <em>frames_per_second=None</em>, <em>pixel_per_degree=None</em>, <em>sharp=False</em>, <em>temporal_smoothing=1.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/samples.html#moving_bar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.samples.moving_bar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a moving bar stimulus.
+By default, this bar is smoothed in time, ie. its fuzzyness is determined by its speed and <cite>temporal_smoothing</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>t: int</strong></p>
+<blockquote>
+<div><p>temporal length of the stimulus</p>
+</div></blockquote>
+<p><strong>x: int</strong></p>
+<blockquote>
+<div><p>width of the stimulus</p>
+</div></blockquote>
+<p><strong>y: int</strong></p>
+<blockquote>
+<div><p>height of the stimulus</p>
+</div></blockquote>
+<p><strong>bar_pos: float</strong></p>
+<blockquote>
+<div><p>position of the bar from -1.0 to 1.0</p>
+</div></blockquote>
+<p><strong>bar_direction: float</strong></p>
+<blockquote>
+<div><p>direction of the bar in rad</p>
+</div></blockquote>
+<p><strong>bar_width: float</strong></p>
+<blockquote>
+<div><p>width of the bar in pixel</p>
+</div></blockquote>
+<p><strong>bar_v: float</strong></p>
+<blockquote>
+<div><p>speed of the bar</p>
+</div></blockquote>
+<p><strong>sharp: bool</strong></p>
+<blockquote>
+<div><p>whether the output is binary or smoothed</p>
+</div></blockquote>
+<p><strong>temporal_smoothing: float</strong></p>
+<blockquote class="last">
+<div><p>if greater than 0.0 and <cite>sharp=False</cite>,
+smooths the stimulus in time with a
+gaussian kernel with width <cite>temporal_smoothing</cite>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="convis.samples.random_checker_stimulus">
+<code class="descclassname">convis.samples.</code><code class="descname">random_checker_stimulus</code><span class="sig-paren">(</span><em>t=2000</em>, <em>x=20</em>, <em>y=20</em>, <em>checker_size=5</em>, <em>seed=123</em>, <em>frames_per_second=None</em>, <em>pixel_per_degree=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/samples.html#random_checker_stimulus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.samples.random_checker_stimulus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a random checker flicker of uniformly distributed values
+in a grid of <cite>checker_size`x`checker_size</cite> pixels.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="convis.samples.StimulusSize">
+<em class="property">class </em><code class="descclassname">convis.samples.</code><code class="descname">StimulusSize</code><span class="sig-paren">(</span><em>t=2000</em>, <em>x=20</em>, <em>y=20</em>, <em>pixel_per_degree=10</em>, <em>frames_per_second=1000.0</em>, <em>cuda=False</em>, <em>prepare=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/samples.html#StimulusSize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.samples.StimulusSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class holds information about sample stimulus size.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="convis.samples.SampleGenerator">
+<em class="property">class </em><code class="descclassname">convis.samples.</code><code class="descname">SampleGenerator</code><span class="sig-paren">(</span><em>kernel='random'</em>, <em>kernel_size=(10</em>, <em>5</em>, <em>5)</em>, <em>dt=100</em>, <em>p=0.1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/samples.html#SampleGenerator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.samples.SampleGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Linear-Nonlinear model with a random kernel/weight
+that generates random input/output combinations for
+testing purposes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>kernel</strong> : str or numpy array</p>
+<blockquote>
+<div><p>Possible values for <cite>kernel</cite>:</p>
+<blockquote>
+<div><p>‘random’ or ‘randn’: normal distributed kernel values</p>
+<p>‘rand’: random kernel values bounded between 0 and 1</p>
+<dl class="docutils">
+<dt>‘sparse’: a kernel with a ratio of (approx).</dt>
+<dd><p class="first last"><cite>p</cite> 1s and 1-<cite>p</cite> 0s, randomly assigned.</p>
+</dd>
+</dl>
+<p>or a 5d or 3d numpy array</p>
+</div></blockquote>
+</div></blockquote>
+<p><strong>kernel_size</strong> : tuple(int,int,int)</p>
+<blockquote>
+<div><p>specifies the dimensions of the generated input</p>
+</div></blockquote>
+<p><strong>dt</strong> : int</p>
+<blockquote>
+<div><p>length of chunks when evaluating the model</p>
+</div></blockquote>
+<p><strong>p</strong> : float</p>
+<blockquote class="last">
+<div><p>the ratio of 1s for sparse input</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#convis.samples.generate_sample_data" title="convis.samples.generate_sample_data"><code class="xref py py-obj docutils literal"><span class="pre">convis.samples.generate_sample_data</span></code></a></p>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">SampleGenerator</span><span class="p">(</span><span class="s1">&#39;sparse&#39;</span><span class="p">,</span><span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">p</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">generate</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">LN</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">set_optimizer</span><span class="o">.</span><span class="n">Adam</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>conv</strong></td>
+<td>(convis.filters.Conv3d) the convolution operation (including the weight)</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="64%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>generate(input,size,p)</strong></td>
+<td>generates random input and corresponding output</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="convis.samples.SampleGenerator.generate">
+<code class="descname">generate</code><span class="sig-paren">(</span><em>input='random'</em>, <em>size=(2000</em>, <em>20</em>, <em>20)</em>, <em>p=0.1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/samples.html#SampleGenerator.generate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.samples.SampleGenerator.generate" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>input</strong> : str or numpy array</p>
+<blockquote>
+<div><p>Possible values for <cite>input</cite>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>‘random’ or ‘randn’: normal distributed input</li>
+<li>‘rand’: random input values bounded between 0 and 1</li>
+<li><dl class="first docutils">
+<dt>‘sparse’: input with a ratio of (approx).</dt>
+<dd><cite>p</cite> 1s and 1-<cite>p</cite> 0s, randomly assigned.</dd>
+</dl>
+</li>
+<li>or a 3d or 5d numpy array.</li>
+</ul>
+</div></blockquote>
+<p>If input is anything else, <cite>generate</cite> tries to use it
+as input to the model.</p>
+</div></blockquote>
+<p><strong>size</strong> : tuple(int,int,int)</p>
+<blockquote>
+<div><p>specifies the dimensions of the generated input</p>
+</div></blockquote>
+<p><strong>p</strong> : float</p>
+<blockquote>
+<div><p>the ratio of 1s for sparse input</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>x</strong> :  PyTorch Tensor</p>
+<blockquote>
+<div><p>the randomly created input input</p>
+</div></blockquote>
+<p><strong>y</strong> :  PyTorch Variable</p>
+<blockquote class="last">
+<div><p>the corresponding output</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="convis.samples.generate_sample_data">
+<code class="descclassname">convis.samples.</code><code class="descname">generate_sample_data</code><span class="sig-paren">(</span><em>input='random'</em>, <em>size=(2000</em>, <em>20</em>, <em>20)</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/samples.html#generate_sample_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.samples.generate_sample_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates random input and sample output using 
+a <cite>SampleGenerator</cite> with a random kernel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>input</strong> : str or numpy array</p>
+<blockquote>
+<div><p>Possible values for <cite>input</cite>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>‘random’ or ‘randn’: normal distributed input</li>
+<li>‘rand’: random input values bounded between 0 and 1</li>
+<li><dl class="first docutils">
+<dt>‘sparse’: input with a ratio of (approx).</dt>
+<dd><cite>p</cite> 1s and 1-<cite>p</cite> 0s, randomly assigned.</dd>
+</dl>
+</li>
+<li>or a 3d or 5d numpy array.</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p><strong>size</strong> : tuple(int,int,int)</p>
+<blockquote>
+<div><p>specifies the dimensions of the generated input</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>x</strong> :  PyTorch Tensor</p>
+<blockquote>
+<div><p>the randomly created input input</p>
+</div></blockquote>
+<p><strong>y</strong> :  PyTorch Variable</p>
+<blockquote>
+<div><p>the corresponding output</p>
+</div></blockquote>
+<p>The kernel will be different each time</p>
+<p><cite>convis</cite> is (re)loaded, but constant in one</p>
+<p>session. The “secret” <cite>SampleGenerator</cite> is</p>
+<p class="last">available as <cite>convis.samples._g</cite>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#convis.samples.SampleGenerator" title="convis.samples.SampleGenerator"><code class="xref py py-obj docutils literal"><span class="pre">SampleGenerator</span></code></a></p>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">LN</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">set_optimizer</span><span class="o">.</span><span class="n">Adam</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">generate_sample_data</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-convis.variable_describe">
+<span id="methods-to-describe-objects-convis-variable-describe"></span><h2><a class="toc-backref" href="#id10">Methods to describe objects <cite>convis.variable_describe</cite></a><a class="headerlink" href="#module-convis.variable_describe" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Describing Variables: <a class="reference internal" href="#convis.variable_describe.describe" title="convis.variable_describe.describe"><code class="xref py py-meth docutils literal"><span class="pre">describe()</span></code></a></li>
+<li>Aniamting Tensors: <a class="reference internal" href="#convis.variable_describe.animate" title="convis.variable_describe.animate"><code class="xref py py-meth docutils literal"><span class="pre">animate()</span></code></a>, <a class="reference internal" href="#convis.variable_describe.animate_to_video" title="convis.variable_describe.animate_to_video"><code class="xref py py-meth docutils literal"><span class="pre">animate_to_video()</span></code></a></li>
+<li>Plotting Tensors: <a class="reference internal" href="#convis.variable_describe.plot_3d_tensor_as_3d_plot" title="convis.variable_describe.plot_3d_tensor_as_3d_plot"><code class="xref py py-meth docutils literal"><span class="pre">plot_3d_tensor_as_3d_plot()</span></code></a></li>
+</ul>
+<dl class="function">
+<dt id="convis.variable_describe.describe">
+<code class="descclassname">convis.variable_describe.</code><code class="descname">describe</code><span class="sig-paren">(</span><em>v</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/variable_describe.html#describe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.variable_describe.describe" title="Permalink to this definition">¶</a></dt>
+<dd><p>All-purpose function to describe many convis objects</p>
+<p>The output adapts itself to being displayed in a
+notebook or text console.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="convis.variable_describe.animate">
+<code class="descclassname">convis.variable_describe.</code><code class="descname">animate</code><span class="sig-paren">(</span><em>ar</em>, <em>skip=10</em>, <em>interval=100</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/variable_describe.html#animate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.variable_describe.animate" title="Permalink to this definition">¶</a></dt>
+<dd><p>animates a 3d or 5d array in a jupyter notebook</p>
+<p>Returns a <cite>matplotlib</cite> animation object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ar (np.array):</strong></p>
+<blockquote>
+<div><p>3d or 5d array to animate</p>
+</div></blockquote>
+<p><strong>skip (int):</strong></p>
+<blockquote>
+<div><p>the animation skips this many timesteps
+between two frames.
+When generating an html plot or video for long
+sequences, this should be set to a higher value
+to keep the video short</p>
+</div></blockquote>
+<p><strong>interval (int):</strong></p>
+<blockquote class="last">
+<div><p>number of milliseconds between two animation
+frames</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#convis.variable_describe.animate_double_plot" title="convis.variable_describe.animate_double_plot"><code class="xref py py-obj docutils literal"><span class="pre">convis.variable_describe.animate_double_plot</span></code></a>, <a class="reference internal" href="#convis.variable_describe.animate_to_video" title="convis.variable_describe.animate_to_video"><code class="xref py py-obj docutils literal"><span class="pre">convis.variable_describe.animate_to_video</span></code></a>, <a class="reference internal" href="#convis.variable_describe.animate_to_html" title="convis.variable_describe.animate_to_html"><code class="xref py py-obj docutils literal"><span class="pre">convis.variable_describe.animate_to_html</span></code></a></p>
+</div>
+<p class="rubric">Examples</p>
+<p>To use in a jupyter notebook, use a suitable matplotlib backend:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">convis</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inp</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">moving_grating</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">convis</span><span class="o">.</span><span class="n">animate</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
+<span class="go">&lt;matplotlib.animation.FuncAnimation at 0x7f99d1d88750&gt;</span>
+</pre></div>
+</div>
+<p>To get a html embedded video, use <cite>convis.variable_describe.animate_to_video</cite></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">convis</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inp</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">moving_grating</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">convis</span><span class="o">.</span><span class="n">variable_describe</span><span class="o">.</span><span class="n">animate_to_video</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
+<span class="go">&lt;HTML video embedded in the notebook&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="convis.variable_describe.animate_double_plot">
+<code class="descclassname">convis.variable_describe.</code><code class="descname">animate_double_plot</code><span class="sig-paren">(</span><em>ar</em>, <em>skip=10</em>, <em>interval=200</em>, <em>window_length=200</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/variable_describe.html#animate_double_plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.variable_describe.animate_double_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>animates two plots to show a 3d or 5d array: a spatial and a temporal scrolling line plot</p>
+<p>5d arrays will be converted into 3d arrays by concatenating
+the batch and channel dimensions in the x and y spatial dimensions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ar (np.array):</strong></p>
+<blockquote>
+<div><p>3d or 5d array to animate</p>
+</div></blockquote>
+<p><strong>skip (int):</strong></p>
+<blockquote>
+<div><p>the animation skips this many timesteps
+between two frames.
+When generating an html plot or video for long
+sequences, this should be set to a higher value
+to keep the video short</p>
+</div></blockquote>
+<p><strong>interval (int):</strong></p>
+<blockquote>
+<div><p>number of milliseconds between two animation
+frames</p>
+</div></blockquote>
+<p><strong>window_length (int):</strong></p>
+<blockquote class="last">
+<div><p>length of the window displayed in the 
+scrolling line plot</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#convis.variable_describe.animate" title="convis.variable_describe.animate"><code class="xref py py-obj docutils literal"><span class="pre">convis.variable_describe.animate</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="convis.variable_describe.animate_to_video">
+<code class="descclassname">convis.variable_describe.</code><code class="descname">animate_to_video</code><span class="sig-paren">(</span><em>ar</em>, <em>skip=10</em>, <em>interval=100</em>, <em>scrolling_plot=False</em>, <em>window_length=200</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/variable_describe.html#animate_to_video"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.variable_describe.animate_to_video" title="Permalink to this definition">¶</a></dt>
+<dd><p>animates a 3d or 5d array in a jupyter notebook</p>
+<p>Returns a Jupyter HTML object containing an embedded video
+that can be downloaded.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ar (np.array):</strong></p>
+<blockquote>
+<div><p>3d or 5d array to animate</p>
+</div></blockquote>
+<p><strong>skip (int):</strong></p>
+<blockquote>
+<div><p>the animation skips this many timesteps
+between two frames.
+When generating an html plot or video for long
+sequences, this should be set to a higher value
+to keep the video short</p>
+</div></blockquote>
+<p><strong>interval (int):</strong></p>
+<blockquote>
+<div><p>number of milliseconds between two animation
+frames</p>
+</div></blockquote>
+<p><strong>scrolling_plot (bool):</strong></p>
+<blockquote>
+<div><p>whether to plot the spatial and temporal plots
+or only the spatial animation</p>
+</div></blockquote>
+<p><strong>window_length (int):</strong></p>
+<blockquote class="last">
+<div><p>if <cite>scrolling_plot</cite> is <cite>True</cite>, specifies
+the length of the time window displayed</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#convis.variable_describe.animate" title="convis.variable_describe.animate"><code class="xref py py-obj docutils literal"><span class="pre">convis.variable_describe.animate</span></code></a></p>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">convis</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inp</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">moving_grating</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">convis</span><span class="o">.</span><span class="n">variable_describe</span><span class="o">.</span><span class="n">animate_to_video</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
+<span class="go">&lt;HTML video embedded in the notebook&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="convis.variable_describe.animate_to_html">
+<code class="descclassname">convis.variable_describe.</code><code class="descname">animate_to_html</code><span class="sig-paren">(</span><em>ar</em>, <em>skip=10</em>, <em>interval=100</em>, <em>scrolling_plot=False</em>, <em>window_length=200</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/variable_describe.html#animate_to_html"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.variable_describe.animate_to_html" title="Permalink to this definition">¶</a></dt>
+<dd><p>animates a 3d or 5d array in a jupyter notebook</p>
+<p>Returns a Jupyter HTML object containing an embedded 
+javascript animated plot.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ar (np.array):</strong></p>
+<blockquote>
+<div><p>3d or 5d array to animate</p>
+</div></blockquote>
+<p><strong>skip (int):</strong></p>
+<blockquote>
+<div><p>the animation skips this many timesteps
+between two frames.
+When generating an html plot or video for long
+sequences, this should be set to a higher value
+to keep the video short</p>
+</div></blockquote>
+<p><strong>interval (int):</strong></p>
+<blockquote>
+<div><p>number of milliseconds between two animation
+frames</p>
+</div></blockquote>
+<p><strong>scrolling_plot (bool):</strong></p>
+<blockquote>
+<div><p>whether to plot the spatial and temporal plots
+or only the spatial animation</p>
+</div></blockquote>
+<p><strong>window_length (int):</strong></p>
+<blockquote class="last">
+<div><p>if <cite>scrolling_plot</cite> is <cite>True</cite>, specifies
+the length of the time window displayed</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#convis.variable_describe.animate" title="convis.variable_describe.animate"><code class="xref py py-obj docutils literal"><span class="pre">convis.variable_describe.animate</span></code></a></p>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">convis</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inp</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">moving_grating</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">convis</span><span class="o">.</span><span class="n">variable_describe</span><span class="o">.</span><span class="n">animate_to_html</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
+<span class="go">&lt;HTML javascript plot embedded in the notebook&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="convis.variable_describe.OrthographicWrapper">
+<em class="property">class </em><code class="descclassname">convis.variable_describe.</code><code class="descname">OrthographicWrapper</code><a class="reference internal" href="_modules/convis/variable_describe.html#OrthographicWrapper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.variable_describe.OrthographicWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>This context manager overwrites the persp_transformation function of proj3d
+to perform orthographic projections.
+Plots that are show()n or save()d in this context will use the projection.</p>
+<p>After the context closes, the old projection is restored.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">convis</span><span class="o">.</span><span class="n">variable_describe</span><span class="o">.</span><span class="n">OrthographicWrapper</span><span class="p">():</span>
+<span class="go"> ..     plot_3d_tensor_as_3d_plot(ar) # orthographic projection</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot_3d_tensor_as_3d_plot</span><span class="p">(</span><span class="n">ar</span><span class="p">)</span> <span class="c1"># returns to default projection</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">orth</span> <span class="o">=</span> <span class="n">convis</span><span class="o">.</span><span class="n">variable_describe</span><span class="o">.</span><span class="n">OrthographicWrapper</span><span class="p">():</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">orth</span><span class="p">:</span>
+<span class="go"> ..     plot_3d_tensor_as_3d_plot(ar) </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot_3d_tensor_as_3d_plot</span><span class="p">(</span><span class="n">ar</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="convis.variable_describe.plot_3d_tensor_as_3d_plot">
+<code class="descclassname">convis.variable_describe.</code><code class="descname">plot_3d_tensor_as_3d_plot</code><span class="sig-paren">(</span><em>ar</em>, <em>ax=None</em>, <em>scale_ar=None</em>, <em>num_levels=20</em>, <em>contour_cmap='coolwarm_r'</em>, <em>contourf_cmap='gray'</em>, <em>view=(25</em>, <em>65)</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/convis/variable_describe.html#plot_3d_tensor_as_3d_plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#convis.variable_describe.plot_3d_tensor_as_3d_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Until I come up with a 3d contour plot that shows the contours of a volume, 
+this function visualizes a sequence of images as contour plots stacked on top of each other.
+The sides of the plot show a projection onto the xz and yz planes (at index 0).</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>ar:</dt>
+<dd>the array to visualize</dd>
+<dt>ax: (if available)</dt>
+<dd>the matplotlib axis (in projection=‘3d’ mode) from eg. calling subplot
+if none is provided, the current axis will be converted to 3d projection</dd>
+<dt>scale_ar:</dt>
+<dd>the array that is used for scaling (usefull if comparing arrays or visualizing only a small section)</dd>
+<dt>num_levels: </dt>
+<dd>number of levels of contours</dd>
+<dt>contour_cmap=’coolwarm_r’: </dt>
+<dd>color map used for line contours</dd>
+<dt>contourf_cmap=’gray’: </dt>
+<dd>color map used for surface contour</dd>
+<dt>view:</dt>
+<dd>tuple of two floats that give the azimuth and angle of the projection</dd>
+</dl>
+</div></blockquote>
+<p>returns:</p>
+<blockquote>
+<div>axis that was used for plotting</div></blockquote>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="docs_filters.html" class="btn btn-neutral float-right" title="Filters convis.filters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="model_McIntosh.html" class="btn btn-neutral" title="A Convolutional Retina Model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Jacob Huth.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.6.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
